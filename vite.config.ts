@@ -19,5 +19,5 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: '/langr-ai-insights-18/', // Replace with your GitHub repo name
+  base: mode === 'production' ? '/langr-ai-insights-18/' : '/',
 }));
