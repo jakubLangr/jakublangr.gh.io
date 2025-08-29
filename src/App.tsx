@@ -8,6 +8,10 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+console.log('🚀 App starting - Environment:', import.meta.env.PROD ? 'PRODUCTION' : 'DEVELOPMENT');
+console.log('📍 Router basename:', import.meta.env.PROD ? "/langr-ai-insights-18" : "");
+console.log('🌐 Base URL:', import.meta.env.BASE_URL);
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
