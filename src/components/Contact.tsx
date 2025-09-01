@@ -1,9 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Mail, Linkedin, Github, MessageSquare } from 'lucide-react';
+import { Mail, Linkedin, Github } from 'lucide-react';
 
 const Contact = () => {
   const contactMethods = [
@@ -12,7 +9,7 @@ const Contact = () => {
       title: "Email",
       description: "For professional inquiries and collaboration opportunities",
       action: "Send Email",
-      link: "mailto:jakub@example.com"
+      link: "mailto:jklangr@gmail.com"
     },
     {
       icon: Linkedin,
@@ -43,74 +40,31 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="max-w-4xl mx-auto">
           {/* Contact Methods */}
-          <div className="space-y-6 animate-slide-up">
-            <h3 className="text-2xl font-semibold mb-6">Get In Touch</h3>
+          <div className="grid md:grid-cols-3 gap-6 animate-slide-up">
             {contactMethods.map((method, index) => (
               <Card key={index} className="shadow-elegant hover:shadow-glow transition-smooth">
                 <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <method.icon className="w-6 h-6 text-accent mt-1" />
-                    <div className="flex-1">
-                      <h4 className="font-semibold mb-1">{method.title}</h4>
-                      <p className="text-muted-foreground text-sm mb-3">
-                        {method.description}
-                      </p>
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        onClick={() => window.open(method.link, '_blank')}
-                      >
-                        {method.action}
-                      </Button>
-                    </div>
+                  <div className="text-center">
+                    <method.icon className="w-8 h-8 text-accent mx-auto mb-4" />
+                    <h4 className="font-semibold mb-2">{method.title}</h4>
+                    <p className="text-muted-foreground text-sm mb-4">
+                      {method.description}
+                    </p>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => window.open(method.link, '_blank')}
+                      className="w-full"
+                    >
+                      {method.action}
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
             ))}
           </div>
-
-          {/* Contact Form */}
-          <Card className="shadow-elegant animate-slide-up">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <MessageSquare className="w-5 h-5" />
-                Send a Message
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="firstName">First Name</Label>
-                  <Input id="firstName" placeholder="John" />
-                </div>
-                <div>
-                  <Label htmlFor="lastName">Last Name</Label>
-                  <Input id="lastName" placeholder="Doe" />
-                </div>
-              </div>
-              <div>
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="john@example.com" />
-              </div>
-              <div>
-                <Label htmlFor="subject">Subject</Label>
-                <Input id="subject" placeholder="Collaboration Opportunity" />
-              </div>
-              <div>
-                <Label htmlFor="message">Message</Label>
-                <Textarea 
-                  id="message" 
-                  placeholder="Tell me about your project or inquiry..." 
-                  rows={5}
-                />
-              </div>
-              <Button className="w-full btn-hero">
-                Send Message
-              </Button>
-            </CardContent>
-          </Card>
         </div>
 
         <div className="text-center mt-16 p-8 bg-muted/50 rounded-lg">
