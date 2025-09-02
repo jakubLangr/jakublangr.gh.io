@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -129,9 +130,11 @@ const Publications = () => {
           <p className="text-muted-foreground mb-6">
             Interested in exploring more of my technical writings and research contributions?
           </p>
-          <Button className="btn-hero">
-            View All Publications
-          </Button>
+          <Link to="/articles">
+            <Button className="btn-hero">
+              View All Articles & Blog Posts
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
