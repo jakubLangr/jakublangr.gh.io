@@ -1,9 +1,7 @@
 import { useParams, Navigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { articles } from '@/data/articles';
-import { parseArticle } from '@/lib/articles';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Badge } from '@/components/ui/badge';
@@ -11,53 +9,10 @@ import { Calendar, User, Tag } from 'lucide-react';
 
 const ArticlePage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const [article, setArticle] = useState(() => articles.find(a => a.slug === slug));
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const loadContent = async () => {
-      if (!slug) return;
-      
-      try {
-        const response = await fetch(`/content/${slug}.md`);
-        if (response.ok) {
-          const content = await response.text();
-          const parsedArticle = parseArticle(slug, content);
-          setArticle(parsedArticle);
-        }
-      } catch (error) {
-        console.warn(`Could not load content for ${slug}:`, error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadContent();
-  }, [slug]);
+  const article = articles.find(a => a.slug === slug);
 
   if (!article) {
     return <Navigate to="/404" replace />;
-  }
-
-  if (loading) {
-    return (
-      <div className="min-h-screen">
-        <Header />
-        <main className="container mx-auto px-4 py-8 max-w-4xl">
-          <div className="animate-pulse">
-            <div className="h-8 bg-muted rounded mb-4"></div>
-            <div className="h-4 bg-muted rounded mb-2"></div>
-            <div className="h-4 bg-muted rounded mb-8"></div>
-            <div className="space-y-3">
-              <div className="h-4 bg-muted rounded"></div>
-              <div className="h-4 bg-muted rounded"></div>
-              <div className="h-4 bg-muted rounded"></div>
-            </div>
-          </div>
-        </main>
-        <Footer />
-      </div>
-    );
   }
 
   return (
