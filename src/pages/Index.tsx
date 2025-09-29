@@ -58,6 +58,12 @@ const Index = () => {
                       Publications
                     </button>
                     <button 
+                      onClick={() => scrollToSection('consulting')}
+                      className="block w-full text-left py-1 px-1.5 text-xs text-muted-foreground hover:text-accent hover:bg-muted/30 rounded transition-colors"
+                    >
+                      Professional Consulting
+                    </button>
+                    <button 
                       onClick={() => scrollToSection('contact')}
                       className="block w-full text-left py-1 px-1.5 text-xs text-muted-foreground hover:text-accent hover:bg-muted/30 rounded transition-colors"
                     >

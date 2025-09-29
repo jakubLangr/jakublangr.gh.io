@@ -67,7 +67,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="mt-16 p-8 bg-gradient-to-br from-accent/10 to-primary/5 border-2 border-accent/20 rounded-xl shadow-elegant">
+        <div id="consulting" className="mt-16 p-8 bg-gradient-to-br from-accent/10 to-primary/5 border-2 border-accent/20 rounded-xl shadow-elegant">
           <div className="text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 rounded-full mb-4">
               <svg className="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -80,11 +80,15 @@ const Contact = () => {
               Let's discuss how I can help accelerate your AI initiatives with proven expertise.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button size="lg" className="btn-hero shadow-glow">
+              <Button 
+                size="lg" 
+                className="btn-hero shadow-glow"
+                onClick={() => window.open('https://calendar.app.google/sNTe7tPULpja3hM8A', '_blank')}
+              >
                 Schedule Consultation
               </Button>
               <Button variant="outline" size="lg" className="border-accent/30 text-accent hover:bg-accent/10">
-                View Services & Rates
+                View Services
               </Button>
             </div>
           </div>
