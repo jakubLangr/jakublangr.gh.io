@@ -35,12 +35,12 @@ const Header = () => {
         <div className="hidden md:flex items-center space-x-8">
           {isHomePage ? (
             <>
-              <button 
-                onClick={() => scrollToSection('about')}
+              <Link 
+                to="/about"
                 className="text-foreground hover:text-accent transition-smooth"
               >
                 About
-              </button>
+              </Link>
               <button 
                 onClick={() => scrollToSection('experience')}
                 className="text-foreground hover:text-accent transition-smooth"
@@ -73,6 +73,12 @@ const Header = () => {
                 className="text-foreground hover:text-accent transition-smooth"
               >
                 Home
+              </Link>
+              <Link 
+                to="/about"
+                className="text-foreground hover:text-accent transition-smooth"
+              >
+                About
               </Link>
               <Link 
                 to="/articles"
