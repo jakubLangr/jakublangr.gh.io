@@ -67,15 +67,59 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="text-center mt-16 p-8 bg-muted/50 rounded-lg">
-          <h3 className="text-xl font-semibold mb-2">Professional Consulting</h3>
-          <p className="text-muted-foreground mb-4">
-            Available for AI strategy consulting, technical advisory roles, and speaking engagements. 
-            Let's discuss how I can help with your AI initiatives.
-          </p>
-          <Button variant="outline">
-            Learn About Consulting Services
-          </Button>
+        <div className="mt-16 p-8 bg-gradient-to-br from-accent/10 to-primary/5 border-2 border-accent/20 rounded-xl shadow-elegant">
+          <div className="text-center">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 rounded-full mb-4">
+              <svg className="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold mb-3 gradient-text">Professional Consulting</h3>
+            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+              Available for AI strategy consulting, technical advisory roles, and speaking engagements. 
+              Let's discuss how I can help accelerate your AI initiatives with proven expertise.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button size="lg" className="btn-hero shadow-glow">
+                Schedule Consultation
+              </Button>
+              <Button variant="outline" size="lg" className="border-accent/30 text-accent hover:bg-accent/10">
+                View Services & Rates
+              </Button>
+            </div>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6 mt-8">
+            <div className="text-center p-4 bg-background/50 rounded-lg">
+              <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h4 className="font-semibold mb-2">AI Strategy</h4>
+              <p className="text-sm text-muted-foreground">Strategic planning and roadmap development for AI adoption</p>
+            </div>
+            
+            <div className="text-center p-4 bg-background/50 rounded-lg">
+              <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+              <h4 className="font-semibold mb-2">Technical Advisory</h4>
+              <p className="text-sm text-muted-foreground">Hands-on guidance for ML/AI implementation and architecture</p>
+            </div>
+            
+            <div className="text-center p-4 bg-background/50 rounded-lg">
+              <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m0 0V1a1 1 0 011-1h2a1 1 0 011 1v18a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1h2a1 1 0 011 1v3m0 0h8m-8 0V4" />
+                </svg>
+              </div>
+              <h4 className="font-semibold mb-2">Speaking & Training</h4>
+              <p className="text-sm text-muted-foreground">Conference talks, workshops, and team training sessions</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
