@@ -3,6 +3,63 @@ import { Article } from '@/lib/articles';
 // Article data extracted from content files
 export const articles: Article[] = [
   {
+    slug: 'the-opus-renaissance',
+    title: 'The Opus Renaissance: Rebirth of the Old Continent',
+    date: '2026-03-12',
+    tags: ['AI', 'Europe', 'startups', 'geopolitics', 'LLMs'],
+    category: 'non-technical',
+    author: 'Jakub Langr',
+    summary: 'Europe has missed out on tech growth in recent years — and that might be exactly why it\'s poised to lead the AI era. With software cheaper than ever to build, geopolitical tailwinds, and a strong industrial base, the Old Continent is ready for its renaissance.',
+    content: `Europe has missed out on a lot of the tech growth in recent years... and that's a good thing. If you think about it, US has ~$22T of market cap at risk, meanwhile Europe has ~$2.5T. Most of European GDP comes from advanced manufacturing (think ASML, cars, cranes, Industrial Robots/SCADA etc) yet software megacaps are few and far between.
+
+Europe sells advanced goods and buys (software) services, the US buys goods and sells services. This was true for decades.
+
+However, what is going to happen when building and scaling software companies is the easiest it's ever been? OpenClaw was vibe-coded by a single guy in Vienna. Europe has outmatched the US on the number of commits for many years now and yet this gave rise to few giants.
+
+So where is all this innovation going? I think the re-birth of European tech will be in re-wiring for the AI era. Gone are the days of managing armies of workers in some Asian country, giving them Western names and asking them to remotely provide services back to the US or EU. If it can be made into a process, AI can do it.
+
+What if your engineers are still offshore? You are slowing down your iteration cycle — cardinal sin in the AI era. Perhaps even more importantly, in the AI era we will get to re-wire business primitives in a completely new way. Do we need Power BI ($7B/yr) or Tableau ($3B/yr) if AI is giving us the full analysis and suggests decisions by itself? Chat is a much more natural interface.
+
+As with many revolutions in technology, starting from a blank slate is usually faster than re-wiring old systems. Humans take a long time to re-learn skills. This is much worse for larger organizations. Think how much faster UAE and China built than the US, which built faster than Europe. Organizational debt at every layer slows you down.
+
+## The US Self-Sabotage
+
+With the US undergoing one of the biggest acts of industrial self-sabotage by kicking out foreign researchers and students leading to over $8B loss to the US economy. Not to mention an administration that has kicked out top researchers (Zifan Wang, Meta, ~7K Citations) and Yann LeCun (Meta, ~454K citations) has moved back to Europe and this was all before the cataclysmic meltdown against Anthropic last Friday.
+
+Designating probably the best AI company in the world a "supply chain risk" (no US company has ever received this label; this was generally reserved for Huawei etc.), which is an unprecedented intervention in private markets... right until the president was publicly pressuring them to back down just moments later. What was Anthropic's main blasphemy? Not wanting to build AI mass surveillance and AI killer software/drones.
+
+The US government then ended up using Claude for their strike against Iran anyway. (The contract is still cancelled however). I could go on for thousands of pages. None of these are pro-business, pro-AI, pro-Software moves.
+
+## Reviving the Old Continent
+
+Meanwhile, Europe has a lot to gain and little to lose. My thesis is that it is much easier to build with a solid industrial base that is hopefully going to use all the software layers for robotics and automation (after all software is now *unbelievably* easy to build), whereas factories (especially complex ones) are hard.
+
+With US tariffs seemingly changing every hour, Europe has a strong capacity to build the software and keep growing the industrial base which heavily relies on stable (usually multi-year, multi-decade deals). I am very bullish on building in Europe due to all of these geopolitical tailwinds which are strongest they have been probably since the fall of the cold war.
+
+This is further reinforced by as my co-founder Toby Mather has described in his blogpost Opus Babies: it is now faster than ever to build and spin up companies, which again advantages Europe.
+
+Known for its strict labor laws and overregulated technology, Europe has fallen behind in software. But small teams, rapidly iterating to aggressively pushing change have always existed in Europe. The problem is there was neither the capital nor the depth of the startup talent pool to support truly massive companies. Don't get me wrong, if you wanted to hire yet another Siemens engineer for your SCADA industrial system, you could find loads. But if you wanted to hire an engineer that scaled Stripe from 1M to 100M transactions per year, you were out of luck.
+
+So we now have all we need in Europe:
+
+- **Building software has never been cheaper** (e.g. Affordable Care Act ("Obamacare") has reportedly cost $5B+); so massive, unified USD market is less of a requirement
+- **The talent pool and what's required to build a startup has totally changed**: small, Opus-driven teams can easily scale at 100x the rate of traditional companies.
+
+Few people and quick iteration cycles: we can now offload an insane amount of stuff to LLMs (almost everything that does not require human touch).
+
+This is one of the reasons I started building [Rig](https://rig.dev) — a context-aware AI to chat to data to build automations on internal data. The level of transformation in the next 3 years is going to make the last 20 years of software look like an old folks home (excuse the em-dash; I'm still a fan).
+
+Not all of this is going to be easy, but I'm optimistic that Europe, with the Jevons paradox driving demand for software and a strong industrial base, has a lot of potential to drive the future of many of these technologies.
+
+## The Copium of the Europoors
+
+I can already see the army of bots and tech bros showing me the graphs showing me the tech valuations (the ones I cited at the start) or that highly misleading chart of EU fines vs taxes. I am well aware that Europe's year has been declared many times and yet it never materialized. The European tech system is behind but that might even be an advantage as Europe can build without the pre-LLM tech debt.
+
+But just hope and some tailwinds are insufficient. I am very happy to see new initiatives like EU Inc and others seeking unification of European regulations and capital markets. That was one of the key driving forces of US success that few spoke about. Ultimately, most successes and innovations are trends layered on top of each other: automobiles, phones and the internet were many trends layered on top of each other. They all offered the right mix of improving cost curves, changing needs and natural adoption. Whether we have the right mix is yet to be seen.
+
+The potential of LLMs is massive and everyone is just getting started. It will require re-thinking white office work from the ground up. Will we need BI at all in a world full of agents? Or will agents analyze full warehouses and simply tell us what to do? Who benefits from such a world? Is it Power BI or Tableau? Unlikely. It is companies like Rig that are quick to adopt new technologies and iterate with users. Europe will need to move faster than it has ever before. But the conditions are perfect as the Opus Babies are just being born.`
+  },
+  {
     slug: 'about',
     title: 'About Me',
     date: '2014-09-14',
