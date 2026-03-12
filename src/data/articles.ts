@@ -46,7 +46,7 @@ With US tariffs seemingly changing every hour, Europe has a strong capacity to b
 
 ![Timeline of Trump's 2nd-Term Tariffs](/blog/opus-renaissance/joey-politano-tariffs.png)
 
-This is further reinforced by as my co-founder Toby Mather has described in his blogpost Opus Babies: it is now faster than ever to build and spin up companies, which again advantages Europe.
+This is further reinforced by as my co-founder Toby Mather has described in his blogpost [Opus Babies](https://deliberateceo.substack.com/p/opus-babies): it is now faster than ever to build and spin up companies, which again advantages Europe.
 
 Known for its strict labor laws and overregulated technology, Europe has fallen behind in software. But small teams, rapidly iterating to aggressively pushing change have always existed in Europe. The problem is there was neither the capital nor the depth of the startup talent pool to support truly massive companies. Don't get me wrong, if you wanted to hire yet another Siemens engineer for your SCADA industrial system, you could find loads. But if you wanted to hire an engineer that scaled Stripe from 1M to 100M transactions per year, you were out of luck.
 
@@ -61,7 +61,7 @@ So we now have all we need in Europe:
 
 Few people and quick iteration cycles: we can now offload an insane amount of stuff to LLMs (almost everything that does not require human touch).
 
-This is one of the reasons I started building [Rig](https://rig.dev) — a context-aware AI to chat to data to build automations on internal data. The level of transformation in the next 3 years is going to make the last 20 years of software look like an old folks home (excuse the em-dash; I'm still a fan).
+This is one of the reasons I started building [Rig](https://rig.so) — a context-aware AI to chat to data to build automations on internal data. The level of transformation in the next 3 years is going to make the last 20 years of software look like an old folks home (excuse the em-dash; I'm still a fan).
 
 Not all of this is going to be easy, but I'm optimistic that Europe, with the Jevons paradox driving demand for software and a strong industrial base, has a lot of potential to drive the future of many of these technologies.
 
@@ -71,11 +71,11 @@ I can already see the army of bots and tech bros showing me the graphs showing m
 
 But just hope and some tailwinds are insufficient. I am very happy to see new initiatives like EU Inc and others seeking unification of European regulations and capital markets. That was one of the key driving forces of US success that few spoke about. Ultimately, most successes and innovations are trends layered on top of each other: automobiles, phones and the internet were many trends layered on top of each other. They all offered the right mix of improving cost curves, changing needs and natural adoption. Whether we have the right mix is yet to be seen.
 
-The potential of LLMs is massive and everyone is just getting started. It will require re-thinking white office work from the ground up. Will we need BI at all in a world full of agents? Or will agents analyze full warehouses and simply tell us what to do? Who benefits from such a world? Is it Power BI or Tableau? Unlikely. It is companies like Rig that are quick to adopt new technologies and iterate with users. Europe will need to move faster than it has ever before. But the conditions are perfect as the Opus Babies are just being born.
+The potential of LLMs is massive and everyone is just getting started. It will require re-thinking white office work from the ground up. Will we need BI at all in a world full of agents? Or will agents analyze full warehouses and simply tell us what to do? Who benefits from such a world? Is it Power BI or Tableau? Unlikely. It is companies like Rig that are quick to adopt new technologies and iterate with users. Europe will need to move faster than it has ever before. But the conditions are perfect as the [Opus Babies](https://deliberateceo.substack.com/p/opus-babies) are just being born.
 
 ---
 
-*If you're interested in what we're building, check out [Rig](https://rig.dev) — context-aware AI to chat to your data and build automations on internal data.*`
+*If you're interested in what we're building, check out [Rig](https://rig.so) — context-aware AI to chat to your data and build automations on internal data.*`
   },
   {
     slug: 'about',
