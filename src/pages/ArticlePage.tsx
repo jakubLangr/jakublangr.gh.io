@@ -18,7 +18,7 @@ const ArticlePage = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <main className="container mx-auto px-4 pt-24 pb-8 max-w-4xl">
+      <main className="container mx-auto px-4 pt-32 pb-8 max-w-4xl">
         <article className="prose prose-lg max-w-none">
           <header className="mb-8">
             <h1 className="text-4xl font-bold mb-4">{article.title}</h1>
