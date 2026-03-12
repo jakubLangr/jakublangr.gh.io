@@ -71,7 +71,7 @@ const ArticlePage = () => {
                 h3: ({ children }) => <h3 className="text-xl font-medium mt-4 mb-2">{children}</h3>,
                 p: ({ children }) => <p className="mb-4 leading-relaxed">{children}</p>,
                 a: ({ href, children }) => (
-                  <a href={href} className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                  <a href={href} className="text-accent underline underline-offset-2 hover:text-accent/80" target="_blank" rel="noopener noreferrer">
                     {children}
                   </a>
                 ),
