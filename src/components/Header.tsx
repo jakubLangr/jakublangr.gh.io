@@ -25,7 +25,7 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
-      isScrolled ? 'bg-background/95 backdrop-blur-sm shadow-elegant' : 'bg-black/30 backdrop-blur-sm'
+      isScrolled ? 'bg-background/95 backdrop-blur-sm shadow-elegant' : 'bg-black/50 backdrop-blur-md'
     }`}>
       <nav className="container-width flex items-center justify-between py-4">
         <Link to="/" className="text-xl font-bold gradient-text hover:opacity-80 transition-opacity">

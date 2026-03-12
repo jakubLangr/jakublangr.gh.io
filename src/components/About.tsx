@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 const About = () => {
   return (
-    <section id="about" className="section-padding bg-muted/30">
+    <section id="about" className="pt-12 pb-24 px-4 sm:px-6 lg:px-8 bg-muted/30">
       <div className="container-width">
         <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-section-title gradient-text">

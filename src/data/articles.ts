@@ -14,7 +14,11 @@ export const articles: Article[] = [
 
 Europe sells advanced goods and buys (software) services, the US buys goods and sells services. This was true for decades.
 
+![EU-U.S. Trade Levels Out Between Goods and Services — net deficit/surplus in billion U.S. dollars. Source: Eurostat, Statista](/blog/opus-renaissance/eu-us-trade.png)
+
 However, what is going to happen when building and scaling software companies is the easiest it's ever been? OpenClaw was vibe-coded by a single guy in Vienna. Europe has outmatched the US on the number of commits for many years now and yet this gave rise to few giants.
+
+![Count of Git Pushes Among Top 30 Economies — EU has outmatched the US for years, yet few software giants emerged](/blog/opus-renaissance/git-pushes.png)
 
 So where is all this innovation going? I think the re-birth of European tech will be in re-wiring for the AI era. Gone are the days of managing armies of workers in some Asian country, giving them Western names and asking them to remotely provide services back to the US or EU. If it can be made into a process, AI can do it.
 
@@ -28,6 +32,8 @@ With the US undergoing one of the biggest acts of industrial self-sabotage by ki
 
 Designating probably the best AI company in the world a "supply chain risk" (no US company has ever received this label; this was generally reserved for Huawei etc.), which is an unprecedented intervention in private markets... right until the president was publicly pressuring them to back down just moments later. What was Anthropic's main blasphemy? Not wanting to build AI mass surveillance and AI killer software/drones.
 
+![Trump's Truth Social post about Anthropic](/blog/opus-renaissance/trump-truth-social.png)
+
 The US government then ended up using Claude for their strike against Iran anyway. (The contract is still cancelled however). I could go on for thousands of pages. None of these are pro-business, pro-AI, pro-Software moves.
 
 ## Reviving the Old Continent
@@ -36,14 +42,22 @@ Meanwhile, Europe has a lot to gain and little to lose. My thesis is that it is 
 
 With US tariffs seemingly changing every hour, Europe has a strong capacity to build the software and keep growing the industrial base which heavily relies on stable (usually multi-year, multi-decade deals). I am very bullish on building in Europe due to all of these geopolitical tailwinds which are strongest they have been probably since the fall of the cold war.
 
+![Justin Wolfers on four tariff regimes in 25 hours](/blog/opus-renaissance/justin-wolfers-tariffs.png)
+
+![Timeline of Trump's 2nd-Term Tariffs](/blog/opus-renaissance/joey-politano-tariffs.png)
+
 This is further reinforced by as my co-founder Toby Mather has described in his blogpost Opus Babies: it is now faster than ever to build and spin up companies, which again advantages Europe.
 
 Known for its strict labor laws and overregulated technology, Europe has fallen behind in software. But small teams, rapidly iterating to aggressively pushing change have always existed in Europe. The problem is there was neither the capital nor the depth of the startup talent pool to support truly massive companies. Don't get me wrong, if you wanted to hire yet another Siemens engineer for your SCADA industrial system, you could find loads. But if you wanted to hire an engineer that scaled Stripe from 1M to 100M transactions per year, you were out of luck.
 
 So we now have all we need in Europe:
 
+![The Evolution of Work: from Craft Guilds to AGI Startups (credit: Toby Mather's LLM)](/blog/opus-renaissance/evolution-of-work.png)
+
 - **Building software has never been cheaper** (e.g. Affordable Care Act ("Obamacare") has reportedly cost $5B+); so massive, unified USD market is less of a requirement
 - **The talent pool and what's required to build a startup has totally changed**: small, Opus-driven teams can easily scale at 100x the rate of traditional companies.
+
+![Capability scaling: Pre-AI vs Early LLMs vs Opus 4.5+ — small teams can now scale exponentially](/blog/opus-renaissance/capability-curves.png)
 
 Few people and quick iteration cycles: we can now offload an insane amount of stuff to LLMs (almost everything that does not require human touch).
 

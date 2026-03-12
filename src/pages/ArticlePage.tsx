@@ -93,6 +93,12 @@ const ArticlePage = () => {
                 ul: ({ children }) => <ul className="list-disc pl-6 mb-4">{children}</ul>,
                 ol: ({ children }) => <ol className="list-decimal pl-6 mb-4">{children}</ol>,
                 li: ({ children }) => <li className="mb-1">{children}</li>,
+                img: ({ src, alt }) => (
+                  <figure className="my-8">
+                    <img src={src} alt={alt || ''} className="rounded-lg shadow-md mx-auto max-w-full" />
+                    {alt && <figcaption className="text-center text-sm text-muted-foreground mt-2 italic">{alt}</figcaption>}
+                  </figure>
+                ),
               }}
             >
               {article.content}
