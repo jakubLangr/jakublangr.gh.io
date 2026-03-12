@@ -71,7 +71,11 @@ I can already see the army of bots and tech bros showing me the graphs showing m
 
 But just hope and some tailwinds are insufficient. I am very happy to see new initiatives like EU Inc and others seeking unification of European regulations and capital markets. That was one of the key driving forces of US success that few spoke about. Ultimately, most successes and innovations are trends layered on top of each other: automobiles, phones and the internet were many trends layered on top of each other. They all offered the right mix of improving cost curves, changing needs and natural adoption. Whether we have the right mix is yet to be seen.
 
-The potential of LLMs is massive and everyone is just getting started. It will require re-thinking white office work from the ground up. Will we need BI at all in a world full of agents? Or will agents analyze full warehouses and simply tell us what to do? Who benefits from such a world? Is it Power BI or Tableau? Unlikely. It is companies like Rig that are quick to adopt new technologies and iterate with users. Europe will need to move faster than it has ever before. But the conditions are perfect as the Opus Babies are just being born.`
+The potential of LLMs is massive and everyone is just getting started. It will require re-thinking white office work from the ground up. Will we need BI at all in a world full of agents? Or will agents analyze full warehouses and simply tell us what to do? Who benefits from such a world? Is it Power BI or Tableau? Unlikely. It is companies like Rig that are quick to adopt new technologies and iterate with users. Europe will need to move faster than it has ever before. But the conditions are perfect as the Opus Babies are just being born.
+
+---
+
+*If you're interested in what we're building, check out [Rig](https://rig.dev) — context-aware AI to chat to your data and build automations on internal data.*`
   },
   {
     slug: 'about',
