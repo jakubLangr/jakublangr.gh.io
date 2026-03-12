@@ -61,8 +61,8 @@ const Index = () => {
             </div>
             
             {/* Sidebar */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-24 mt-[10px] space-y-3">
+            <div className="lg:col-span-1 lg:pt-2.5">
+              <div className="lg:sticky lg:top-24 space-y-3">
                 {/* Page Navigation */}
                 <Card className="shadow-sm border-l-2 border-l-accent/20">
                   <CardHeader className="pb-2 pt-3">
