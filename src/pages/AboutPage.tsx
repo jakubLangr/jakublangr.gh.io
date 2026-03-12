@@ -112,7 +112,7 @@ const AboutPage = () => {
                     I went to Oxford, studied very questionable degree and did some statistics/economics. I also was kind of crazy about the whole Massive Online Open Courses thing and forgot that real world existed. Then one day, after an intervention from my friends and family, I realized I should probably get off these MOOCs, but it was too late. I already finished 18 of them. But hey, at least I can remember playing with machine learning, data science, statistics, computer science and all the things awesome.
                   </p>
                   <p className="text-lg leading-relaxed text-muted-foreground">
-                    Now I spend some time doing improv and updating this website. If you want to, feel free to get in touch at james [dot] langr [at] gmail [dot] com or via the LinkedIn profile in links!
+                    Now I spend some time doing improv and updating this website.
                   </p>
                 </CardContent>
               </Card>

@@ -77,8 +77,6 @@ I was working in Data Science at a couple of startups (Mudano and Filtered, plus
 
 Now I spend some time doing improv and updating this website.
 
-If you want to, feel free to get in touch at james [dot] langr [at] gmail [dot] com or via the LinkedIn profile in links! 
-
 I now use [LinkedIn as my resume](https://www.linkedin.com/in/jakublangr/).`
   },
   {
