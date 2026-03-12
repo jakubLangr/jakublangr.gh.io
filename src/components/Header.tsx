@@ -28,67 +28,67 @@ const Header = () => {
       isScrolled ? 'bg-background/95 backdrop-blur-sm shadow-elegant' : 'bg-black/50 backdrop-blur-md'
     }`}>
       <nav className="container-width flex items-center justify-between py-4">
-        <Link to="/" className="text-xl font-bold gradient-text hover:opacity-80 transition-opacity">
+        <Link to="/" className="text-xl font-bold text-white hover:opacity-80 transition-opacity">
           Jakub Langr
         </Link>
-        
+
         <div className="hidden md:flex items-center space-x-8">
           {isHomePage ? (
             <>
-              <Link 
+              <Link
                 to="/about"
-                className="text-foreground hover:text-accent transition-smooth"
+                className="text-white hover:text-white/70 transition-smooth"
               >
                 About
               </Link>
-              <button 
+              <button
                 onClick={() => scrollToSection('experience')}
-                className="text-foreground hover:text-accent transition-smooth"
+                className="text-white hover:text-white/70 transition-smooth"
               >
                 Experience
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('publications')}
-                className="text-foreground hover:text-accent transition-smooth"
+                className="text-white hover:text-white/70 transition-smooth"
               >
                 Publications
               </button>
-              <Link 
+              <Link
                 to="/articles"
-                className="text-foreground hover:text-accent transition-smooth"
+                className="text-white hover:text-white/70 transition-smooth"
               >
                 Articles
               </Link>
-              <Button 
+              <Button
                 onClick={() => scrollToSection('contact')}
-                className="btn-hero"
+                className="bg-white text-primary hover:bg-white/90"
               >
                 Contact
               </Button>
             </>
           ) : (
             <>
-              <Link 
+              <Link
                 to="/"
-                className="text-foreground hover:text-accent transition-smooth"
+                className="text-white hover:text-white/70 transition-smooth"
               >
                 Home
               </Link>
-              <Link 
+              <Link
                 to="/about"
-                className="text-foreground hover:text-accent transition-smooth"
+                className="text-white hover:text-white/70 transition-smooth"
               >
                 About
               </Link>
-              <Link 
+              <Link
                 to="/articles"
-                className="text-foreground hover:text-accent transition-smooth"
+                className="text-white hover:text-white/70 transition-smooth"
               >
                 Articles
               </Link>
-              <Link 
+              <Link
                 to="/#contact"
-                className="text-foreground hover:text-accent transition-smooth"
+                className="text-white hover:text-white/70 transition-smooth"
               >
                 Contact
               </Link>

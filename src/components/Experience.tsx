@@ -5,6 +5,7 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const Experience = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isSectionExpanded, setIsSectionExpanded] = useState(false);
 
   const experiences = [
     {
@@ -98,66 +99,78 @@ const Experience = () => {
   return (
     <section id="experience" className="section-padding">
       <div className="container-width">
-        <div className="text-center mb-16 animate-slide-up">
-          <h2 className="text-section-title gradient-text">
+        <button
+          onClick={() => setIsSectionExpanded(!isSectionExpanded)}
+          className="w-full text-center mb-8 animate-slide-up cursor-pointer group"
+        >
+          <h2 className="text-section-title gradient-text inline-flex items-center gap-3">
             Professional Journey
+            {isSectionExpanded ? (
+              <ChevronUp className="w-6 h-6 text-muted-foreground group-hover:text-foreground transition-colors" />
+            ) : (
+              <ChevronDown className="w-6 h-6 text-muted-foreground group-hover:text-foreground transition-colors" />
+            )}
           </h2>
           <p className="text-lead max-w-3xl mx-auto">
             Over a decade building AI companies, shipping ML systems at scale,
             and writing about it along the way — from Oxford to Y Combinator to building Rig.
           </p>
-        </div>
+        </button>
 
-        <div className="space-y-8">
-          {visibleExperiences.map((exp, index) => (
-            <Card
-              key={index}
-              className="animate-slide-up shadow-elegant hover:shadow-glow transition-smooth"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <CardHeader>
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                  <div>
-                    <CardTitle className="text-xl">{exp.title}</CardTitle>
-                    <p className="text-accent font-semibold">{exp.company}</p>
-                  </div>
-                  <Badge variant="secondary" className="self-start sm:self-center">
-                    {exp.period}
-                  </Badge>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  {exp.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {exp.tags.map((tag, tagIndex) => (
-                    <Badge key={tagIndex} variant="outline">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        {isSectionExpanded && (
+          <>
+            <div className="space-y-8">
+              {visibleExperiences.map((exp, index) => (
+                <Card
+                  key={index}
+                  className="animate-slide-up shadow-elegant hover:shadow-glow transition-smooth"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <CardHeader>
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                      <div>
+                        <CardTitle className="text-xl">{exp.title}</CardTitle>
+                        <p className="text-accent font-semibold">{exp.company}</p>
+                      </div>
+                      <Badge variant="secondary" className="self-start sm:self-center">
+                        {exp.period}
+                      </Badge>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground mb-4">
+                      {exp.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.tags.map((tag, tagIndex) => (
+                        <Badge key={tagIndex} variant="outline">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
 
-        <div className="text-center mt-8">
-          <button
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border hover:bg-accent/10 transition-smooth text-muted-foreground hover:text-foreground"
-          >
-            {isExpanded ? (
-              <>
-                Show Less <ChevronUp className="w-4 h-4" />
-              </>
-            ) : (
-              <>
-                Show All {experiences.length} Roles <ChevronDown className="w-4 h-4" />
-              </>
-            )}
-          </button>
-        </div>
+            <div className="text-center mt-8">
+              <button
+                onClick={(e) => { e.stopPropagation(); setIsExpanded(!isExpanded); }}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border hover:bg-accent/10 transition-smooth text-muted-foreground hover:text-foreground"
+              >
+                {isExpanded ? (
+                  <>
+                    Show Less <ChevronUp className="w-4 h-4" />
+                  </>
+                ) : (
+                  <>
+                    Show All {experiences.length} Roles <ChevronDown className="w-4 h-4" />
+                  </>
+                )}
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
