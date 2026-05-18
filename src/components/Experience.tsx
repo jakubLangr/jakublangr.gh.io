@@ -68,7 +68,7 @@ const Experience = () => {
       period: "2017 - 2019",
       title: "R&D Data Scientist",
       company: "Mudano (acq. by Accenture)",
-      description: "Grew ML team from 1 to ~20 as the org grew from 50 to ~200. Secured tens of millions for a top UK financial institution through population-scale ML models. Architected ML microservices on AWS.",
+      description: "Grew ML team from 1 to 15 as the org grew from 50 to ~200. Secured tens of millions for a top UK financial institution through population-scale ML models. Architected ML microservices on AWS.",
       tags: ["Team Growth", "Enterprise AI", "AWS", "FinTech"]
     },
     {

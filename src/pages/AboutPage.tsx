@@ -24,7 +24,7 @@ const AboutPage = () => {
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold mb-6 text-accent">Professional Summary</h2>
                   <p className="text-lg leading-relaxed text-muted-foreground mb-4">
-                    Jakub has worked in data & AI for over a decade. He is currently working on productivity tools for Whatsapp. Previously, he was the CTO for Tenderd (YC S18). Before that, he founded AI startup called Hypermile (acquired by K1, backed by Y Combinator). He raised as a CEO/CTO ~$32M. He wrote a best-selling book on an area of Generative AI and he guest lectured at the University of Oxford. He worked for global tech companies & consultancies (Palantir ($PLTR), Mudano (acq. $ACN), where he grew the ML team from 1 to 15) and startups (as a Data Science Tech Lead at Filtered and a consultant at Founders Factory). Jakub has been awarded an AI climate tech patent by the US PTO and has graduated from Oxford.
+                    Jakub has worked in data & AI for over a decade. He is currently working on Rig: data question to agentic workflows platform. Previously, he was the CTO for Tenderd (YC S18). Before that, he founded AI startup called Hypermile (acquired by K1, backed by Y Combinator). He raised as a CEO/CTO ~$32M. He wrote a best-selling book on an area of Generative AI and he guest lectured at the University of Oxford. He worked for global tech companies & consultancies (Palantir ($PLTR), Mudano (acq. $ACN), where he grew the ML team from 1 to 15) and startups (as a Data Science Tech Lead at Filtered and a consultant at Founders Factory). Jakub has been awarded an AI climate tech patent by the US PTO and has graduated from Oxford.
                   </p>
                 </CardContent>
               </Card>
@@ -89,9 +89,9 @@ const AboutPage = () => {
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold mb-6 text-accent">Current Mission</h2>
                   <p className="text-lg leading-relaxed text-muted-foreground mb-4">
-                    Today, I'm focused on building productivity tools for WhatsApp and helping organizations 
-                    navigate the AI landscape. I believe we're at a critical inflection point where AI will 
-                    fundamentally transform how we work and live.
+                    Today, I'm building Rig — a platform that turns data questions into agentic workflows —
+                    and helping organizations navigate the AI landscape. I believe we're at a critical inflection point
+                    where AI will fundamentally transform how we work and live.
                   </p>
                   <p className="text-lg leading-relaxed text-muted-foreground">
                     My goal is to help as many people and organizations as possible prepare for this AI-driven future - 
