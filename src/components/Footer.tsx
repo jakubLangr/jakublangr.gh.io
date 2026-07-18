@@ -1,83 +1,46 @@
-import { Mail, Linkedin, Github, BookOpen } from 'lucide-react';
+import { Mail, Linkedin, Github } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Linkedin, href: "https://linkedin.com/in/jakublangr", label: "LinkedIn" },
-    { icon: Github, href: "https://github.com/jakublangr", label: "GitHub" },
-    { icon: Mail, href: "mailto:jklangr@gmail.com", label: "Email" },
-    { icon: BookOpen, href: "#", label: "Publications" }
+    { icon: Linkedin, href: 'https://linkedin.com/in/jakublangr', label: 'LinkedIn' },
+    { icon: Github, href: 'https://github.com/jakublangr', label: 'GitHub' },
+    { icon: Mail, href: 'mailto:jklangr@gmail.com', label: 'Email' },
   ];
 
   return (
-    <footer className="bg-primary text-primary-foreground">
-      <div className="container-width section-padding">
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* Brand */}
+    <footer className="border-t border-border">
+      <div className="container-width px-4 sm:px-6 lg:px-8 py-10">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div>
-            <h3 className="text-xl font-bold mb-4">Jakub Langr</h3>
-            <p className="text-primary-foreground/80 mb-4">
-              AI Researcher, Data Scientist & Entrepreneur passionate about 
-              advancing artificial intelligence and machine learning.
-            </p>
-            <div className="flex space-x-4">
-              {socialLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-smooth"
-                  aria-label={link.label}
-                >
-                  <link.icon className="w-5 h-5" />
-                </a>
-              ))}
+            <div className="bp-mono text-sm tracking-[0.08em] text-foreground">
+              JL <span className="text-accent">//</span> jakublangr
             </div>
+            <p className="bp-mono text-xs text-muted-foreground mt-2 tracking-wide">
+              AI · Research · Ventures — data infrastructure for business teams
+            </p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-primary-foreground/80">
-              <li>
-                <a href="#about" className="hover:text-primary-foreground transition-smooth">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#experience" className="hover:text-primary-foreground transition-smooth">
-                  Experience
-                </a>
-              </li>
-              <li>
-                <a href="#publications" className="hover:text-primary-foreground transition-smooth">
-                  Publications
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-primary-foreground transition-smooth">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h4 className="font-semibold mb-4">Get In Touch</h4>
-            <p className="text-primary-foreground/80 mb-2">
-              Available for consulting, speaking engagements, and collaboration opportunities.
-            </p>
-            <p className="text-primary-foreground/80">
-              Based in the UK • Working globally
-            </p>
+          <div className="flex items-center gap-3">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.label}
+                className="w-10 h-10 border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent transition-smooth"
+              >
+                <link.icon className="w-4 h-4" />
+              </a>
+            ))}
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 mt-12 pt-8 text-center text-primary-foreground/60">
-          <p>&copy; {currentYear} Jakub Langr. All rights reserved.</p>
+        <div className="mt-8 pt-6 border-t border-border flex flex-col sm:flex-row justify-between gap-3 bp-mono text-[0.7rem] tracking-[0.12em] uppercase text-muted-foreground">
+          <span>&copy; {currentYear} Jakub Langr</span>
+          <span>Rev. {currentYear} · sheet 1 of 1 · scale 1:1</span>
         </div>
       </div>
     </footer>
