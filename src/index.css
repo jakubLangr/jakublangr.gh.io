@@ -2,101 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Jakub Langr Personal Website Design System
-All colors MUST be HSL for consistent theming across light/dark modes.
+/* Jakub Langr — "Blueprint" Design System
+   Engineering-schematic identity: blueprint-blue ground, cyan detailing,
+   monospace annotations, registration ticks. All colors HSL for theming.
 */
 
 @layer base {
   :root {
-    /* Core Brand Colors - Deep Tech Blues */
-    --background: 0 0% 100%;
-    --foreground: 215 28% 17%;
+    /* Blueprint ground + ink */
+    --background: 216 78% 22%;        /* #0c2f63 blueprint blue */
+    --foreground: 219 100% 96%;       /* near-white, blue bias */
 
-    --card: 0 0% 100%;
-    --card-foreground: 215 28% 17%;
+    --card: 214 74% 25%;              /* raised panel on blue */
+    --card-foreground: 219 100% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 28% 17%;
+    --popover: 215 80% 15%;
+    --popover-foreground: 219 100% 96%;
 
-    /* Primary - Deep Professional Blue */
-    --primary: 215 84% 12%;
-    --primary-foreground: 210 40% 98%;
-    --primary-glow: 220 100% 50%;
+    /* Primary action = cyan detail */
+    --primary: 217 100% 75%;          /* #7fb0ff cyan */
+    --primary-foreground: 216 82% 14%;
+    --primary-glow: 217 100% 75%;
 
-    /* Secondary - Sophisticated Gray-Blue */
-    --secondary: 215 16% 94%;
-    --secondary-foreground: 215 28% 17%;
+    --secondary: 214 62% 30%;
+    --secondary-foreground: 219 100% 96%;
 
-    /* Muted - Subtle Background Tones */
-    --muted: 215 16% 97%;
-    --muted-foreground: 215 13% 47%;
+    --muted: 214 60% 28%;
+    --muted-foreground: 215 62% 80%;  /* #a9c6ee blue-grey */
 
-    /* Accent - Bright Tech Blue */
-    --accent: 220 100% 50%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 217 100% 75%;           /* cyan */
+    --accent-foreground: 216 82% 14%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 55%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 215 27% 92%;
-    --input: 215 27% 92%;
-    --ring: 220 100% 50%;
+    --border: 214 42% 42%;            /* faint blueprint line */
+    --input: 214 42% 42%;
+    --ring: 217 100% 75%;
 
-    --radius: 0.5rem;
+    --radius: 0.4rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 215 80% 16%;
+    --sidebar-foreground: 215 62% 82%;
+    --sidebar-primary: 217 100% 75%;
+    --sidebar-primary-foreground: 216 82% 14%;
+    --sidebar-accent: 214 62% 30%;
+    --sidebar-accent-foreground: 219 100% 96%;
+    --sidebar-border: 214 42% 42%;
+    --sidebar-ring: 217 100% 75%;
   }
 
+  /* Blueprint is single-theme; keep .dark aligned so nothing breaks. */
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
+    --background: 216 82% 18%;
+    --foreground: 219 100% 96%;
+    --card: 214 74% 23%;
+    --card-foreground: 219 100% 96%;
+    --popover: 215 80% 13%;
+    --popover-foreground: 219 100% 96%;
+    --primary: 217 100% 75%;
+    --primary-foreground: 216 82% 12%;
+    --secondary: 214 62% 27%;
+    --secondary-foreground: 219 100% 96%;
+    --muted: 214 60% 25%;
+    --muted-foreground: 215 62% 80%;
+    --accent: 217 100% 75%;
+    --accent-foreground: 216 82% 12%;
+    --destructive: 0 62% 40%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 214 42% 40%;
+    --input: 214 42% 40%;
+    --ring: 217 100% 75%;
   }
 }
 
@@ -107,69 +83,197 @@ All colors MUST be HSL for consistent theming across light/dark modes.
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    /* Blueprint grid — fixed so it reads as drafting paper under content */
+    background-image:
+      linear-gradient(hsla(0, 0%, 100%, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, hsla(0, 0%, 100%, 0.055) 1px, transparent 1px);
+    background-size: 22px 22px;
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: hsl(var(--accent) / 0.3);
   }
 }
 
-/* Professional Design System Extensions */
+/* ============================================================
+   Design System Extensions (recoloured for Blueprint)
+   ============================================================ */
 @layer components {
-  /* Beautiful Gradients */
   .gradient-primary {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-  }
-  
-  .gradient-hero {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
-  }
-  
-  .gradient-text {
     background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  }
+
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(214 70% 30%) 100%);
+  }
+
+  .gradient-text {
+    background: linear-gradient(120deg, #eaf1ff 0%, #7fb0ff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  /* Professional Shadows */
   .shadow-elegant {
-    box-shadow: 0 10px 30px -10px hsl(var(--primary) / 0.2);
+    box-shadow: 0 10px 30px -12px hsl(215 90% 6% / 0.6);
   }
-  
+
   .shadow-glow {
-    box-shadow: 0 0 40px hsl(var(--accent) / 0.15);
+    box-shadow: 0 0 32px hsl(var(--accent) / 0.18);
   }
 
-  /* Smooth Transitions */
   .transition-smooth {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Professional Button Variants */
   .btn-hero {
-    @apply bg-primary text-primary-foreground hover:shadow-glow transition-smooth;
+    @apply bg-primary text-primary-foreground font-semibold hover:shadow-glow transition-smooth;
   }
-  
+
   .btn-accent {
     @apply bg-accent text-accent-foreground hover:shadow-elegant transition-smooth;
   }
 
-  /* Content Sections */
   .section-padding {
-    @apply py-24 px-4 sm:px-6 lg:px-8;
+    @apply py-20 px-4 sm:px-6 lg:px-8;
   }
-  
+
   .container-width {
     @apply max-w-6xl mx-auto;
   }
 
-  /* Typography Enhancements */
   .text-hero {
-    @apply text-4xl md:text-6xl font-bold leading-tight;
+    @apply text-5xl md:text-7xl font-bold leading-[0.98] tracking-tight;
   }
-  
+
   .text-section-title {
     @apply text-3xl md:text-4xl font-bold mb-8;
   }
-  
+
   .text-lead {
     @apply text-xl text-muted-foreground leading-relaxed;
   }
+
+  /* ---------------- Blueprint primitives ---------------- */
+  .bp-mono {
+    font-family: ui-monospace, "SF Mono", "SFMono-Regular", Menlo, Monaco, "Courier New", monospace;
+  }
+
+  /* Section label: "// fig. 0N — title" */
+  .bp-fig {
+    @apply bp-mono block mb-5;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: hsl(var(--accent));
+  }
+
+  .bp-kicker {
+    @apply bp-mono;
+    font-size: 0.72rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: hsl(var(--accent));
+  }
+
+  /* Dimension annotation (↕ 10+ yrs) */
+  .bp-dim {
+    @apply bp-mono inline-flex items-center gap-2;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: hsl(var(--muted-foreground));
+    border-top: 1px dashed hsl(var(--border));
+    padding-top: 0.5rem;
+  }
+
+  /* Panel with registration ticks */
+  .bp-panel {
+    position: relative;
+    border: 1px solid hsl(214 45% 46%);
+    background: hsl(0 0% 100% / 0.02);
+  }
+
+  .bp-tick {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    color: hsl(var(--accent));
+    opacity: 0.75;
+    pointer-events: none;
+  }
+  .bp-tick::before,
+  .bp-tick::after {
+    content: "";
+    position: absolute;
+    background: currentColor;
+  }
+  .bp-tick::before { left: 50%; top: 0; width: 1px; height: 100%; transform: translateX(-50%); }
+  .bp-tick::after  { top: 50%; left: 0; height: 1px; width: 100%; transform: translateY(-50%); }
+  .bp-tick-tl { top: -5px; left: -5px; }
+  .bp-tick-tr { top: -5px; right: -5px; }
+  .bp-tick-bl { bottom: -5px; left: -5px; }
+  .bp-tick-br { bottom: -5px; right: -5px; }
+
+  /* Key/value callout rows */
+  .bp-row {
+    @apply bp-mono flex items-center justify-between gap-3;
+    padding: 0.55rem 0;
+    border-bottom: 1px dotted hsl(var(--border));
+    font-size: 0.75rem;
+  }
+  .bp-row:last-child { border-bottom: 0; }
+  .bp-row .bp-k { color: hsl(var(--muted-foreground)); letter-spacing: 0.1em; text-transform: uppercase; }
+  .bp-row .bp-v { color: #fff; text-align: right; }
+
+  /* Metric gauge cell */
+  .bp-gauge {
+    position: relative;
+    padding: 1.6rem 1.25rem;
+    border-right: 1px solid hsl(214 45% 46%);
+  }
+  .bp-gauge:last-child { border-right: 0; }
+  .bp-gauge .bp-num { font-size: 2.1rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1; }
+  .bp-gauge .bp-lbl {
+    @apply bp-mono;
+    margin-top: 0.6rem; font-size: 0.7rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: hsl(var(--muted-foreground));
+  }
+  .bp-gauge .bp-id {
+    @apply bp-mono;
+    position: absolute; top: 0.6rem; right: 0.75rem;
+    font-size: 0.62rem; color: hsl(var(--accent)); opacity: 0.7;
+  }
+
+  /* Timeline ladder */
+  .bp-ladder { position: relative; padding-left: 2.15rem; }
+  .bp-ladder::before {
+    content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px;
+    width: 1px; background: hsl(var(--accent)); opacity: 0.55;
+  }
+  .bp-node { position: relative; padding-bottom: 1.9rem; }
+  .bp-node:last-child { padding-bottom: 0; }
+  .bp-node::before {
+    content: ""; position: absolute; left: -31px; top: 5px;
+    width: 11px; height: 11px; border: 2px solid hsl(var(--accent));
+    background: hsl(var(--background)); border-radius: 50%;
+  }
+
+  /* Spec card (writing / articles) */
+  .bp-spec {
+    position: relative;
+    padding: 1.35rem;
+    background: hsl(0 0% 100% / 0.02);
+    border: 1px solid hsl(214 45% 46%);
+  }
+
+  /* Contact CTA */
+  .bp-cta {
+    @apply bp-mono inline-block;
+    font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: hsl(var(--primary-foreground)); background: hsl(var(--accent));
+    padding: 0.85rem 1.4rem; border: 1px solid hsl(var(--accent));
+    transition: all 0.2s ease;
+  }
+  .bp-cta:hover { background: #fff; border-color: #fff; }
 }
