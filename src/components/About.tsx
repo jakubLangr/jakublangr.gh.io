@@ -12,8 +12,15 @@ const About = () => {
           <div className="space-y-4 text-foreground/90 leading-relaxed text-lg max-w-[60ch]">
             <p>
               Jakub has worked in data &amp; AI for over 10 years. He is currently working on{' '}
-              <span className="text-accent font-semibold">Rig</span>: data infrastructure for
-              business teams. Previously, he was the CTO for Tenderd (YC S18). Before that, he
+              <a
+                href="https://rig.so"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent font-semibold underline decoration-accent/40 underline-offset-2 hover:decoration-accent transition-smooth"
+              >
+                Rig
+              </a>
+              : data infrastructure for business teams. Previously, he was the CTO for Tenderd (YC S18). Before that, he
               founded AI startup called Hypermile (acquired by Konboi, backed by Y Combinator).
               He raised as a CEO/CTO ~$32M.
             </p>

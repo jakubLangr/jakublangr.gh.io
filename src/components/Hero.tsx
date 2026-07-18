@@ -24,8 +24,15 @@ const Hero = () => {
 
             <p className="mt-6 text-lg md:text-xl text-foreground/90 max-w-xl leading-relaxed">
               AI researcher, author &amp; founder. Building{' '}
-              <span className="text-accent font-semibold">Rig</span> — data infrastructure
-              for business teams.
+              <a
+                href="https://rig.so"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent font-semibold underline decoration-accent/40 underline-offset-2 hover:decoration-accent transition-smooth"
+              >
+                Rig
+              </a>{' '}
+              — data infrastructure for business teams.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
