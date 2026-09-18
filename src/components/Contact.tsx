@@ -1,8 +1,7 @@
-import { Mail, Linkedin, Github, Zap, Compass, Presentation } from 'lucide-react';
+import { Linkedin, Github, Zap, Compass, Presentation } from 'lucide-react';
 
 const Contact = () => {
   const links = [
-    { key: 'Email', value: 'jklangr@gmail.com', href: 'mailto:jklangr@gmail.com', icon: Mail },
     { key: 'LinkedIn', value: '/in/jakublangr', href: 'https://linkedin.com/in/jakublangr', icon: Linkedin },
     { key: 'GitHub', value: '/jakublangr', href: 'https://github.com/jakublangr', icon: Github },
   ];
