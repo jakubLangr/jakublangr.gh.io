@@ -3,7 +3,7 @@ import { useParams, Navigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PasswordGate from '@/components/PasswordGate';
-import EssayMarkdown from '@/components/EssayMarkdown';
+import { EssayDocument } from '@/components/EssayMarkdown';
 import { decryptEssay, hasEssay, storedPassword, storePassword } from '@/lib/protectedEssays';
 
 const ProtectedEssayPage = () => {
@@ -36,11 +36,9 @@ const ProtectedEssayPage = () => {
         {content === null ? (
           <PasswordGate onUnlock={unlock} />
         ) : (
-          <section className="section-padding">
-            <article className="max-w-[68ch] mx-auto text-foreground/90 text-lg leading-relaxed">
-              <EssayMarkdown content={content} />
-            </article>
-          </section>
+          <div className="pt-8 pb-16">
+            <EssayDocument content={content} />
+          </div>
         )}
       </main>
       <Footer />

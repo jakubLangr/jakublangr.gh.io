@@ -16,12 +16,18 @@ const EssayMarkdown = ({ content }: { content: string }) => (
         <h2 id={slugify(String(children))} className="scroll-mt-24 text-2xl md:text-3xl font-bold text-white mt-14 mb-5 pt-6 border-t border-dashed border-border">{children}</h2>
       ),
       h3: ({ children }) => <h3 className="text-xl font-semibold text-white mt-8 mb-3">{children}</h3>,
-      // ###### marks the start of a part of the argument: rendered as a tinted band
+      // ###### marks the start of a part of the argument; --part is set by EssayDocument
       h6: ({ children }) => (
-        <div className="bp-panel mt-16 -mb-8 px-5 py-4 bg-accent/[0.08] border-accent/60">
-          <span className="bp-tick bp-tick-tl" />
-          <span className="bp-tick bp-tick-br" />
-          <span className="bp-kicker">{children}</span>
+        <div
+          className="bp-panel sticky top-[60px] z-20 -mb-8 px-5 py-3 backdrop-blur"
+          style={{
+            borderColor: 'hsl(var(--part, 217 100% 75%) / 0.7)',
+            background: 'linear-gradient(hsl(var(--part, 217 100% 75%) / 0.16), hsl(var(--part, 217 100% 75%) / 0.16)), hsl(216 78% 19% / 0.95)',
+          }}
+        >
+          <span className="bp-tick bp-tick-tl" style={{ color: 'hsl(var(--part, 217 100% 75%))' }} />
+          <span className="bp-tick bp-tick-br" style={{ color: 'hsl(var(--part, 217 100% 75%))' }} />
+          <span className="bp-kicker" style={{ color: 'hsl(var(--part, 217 100% 75%))' }}>{children}</span>
         </div>
       ),
       p: ({ children }) => <p className="mb-5">{children}</p>,
@@ -68,5 +74,61 @@ const EssayMarkdown = ({ content }: { content: string }) => (
     {content}
   </ReactMarkdown>
 );
+
+// Colour per part of the argument (HSL triplets), tinted over the blueprint blue
+const THEMES = {
+  one: { part: '185 75% 60%', tint: '185 75% 55% / 0.11' },
+  two: { part: '45 95% 62%', tint: '42 95% 58% / 0.12' },
+  three: { part: '145 60% 60%', tint: '145 60% 55% / 0.11' },
+  appendix: { part: '220 10% 70%', tint: '220 8% 55% / 0.2' },
+} as const;
+
+const themeFor = (segment: string) => {
+  if (segment.startsWith('###### Part one')) return THEMES.one;
+  if (segment.startsWith('###### Part two')) return THEMES.two;
+  if (segment.startsWith('###### Part three')) return THEMES.three;
+  if (segment.startsWith('## Appendix')) return THEMES.appendix;
+  return null;
+};
+
+// Splits the essay at part markers and at the first appendix heading, and renders each
+// segment as a full-width band so the reader always knows which part of the argument they are in.
+export const EssayDocument = ({ content }: { content: string }) => {
+  const appendixAt = content.search(/^## Appendix/m);
+  const main = appendixAt === -1 ? content : content.slice(0, appendixAt);
+  const appendix = appendixAt === -1 ? '' : content.slice(appendixAt).replace(/\n---\n[\s\S]*$/, '');
+  const footer = appendixAt === -1 ? '' : content.slice(appendixAt).match(/\n---\n[\s\S]*$/)?.[0] ?? '';
+  const segments = [...main.split(/\n(?=###### )/), ...(appendix ? [appendix] : []), ...(footer ? [footer] : [])];
+
+  return (
+    <>
+      {segments.map((segment, i) => {
+        const theme = themeFor(segment);
+        const isAppendix = theme === THEMES.appendix;
+        return (
+          <section
+            key={i}
+            className={`px-4 ${theme ? 'py-12 md:py-16 border-t' : 'py-8'}`}
+            style={{
+              ['--part' as string]: theme?.part ?? '217 100% 75%',
+              background: theme ? `hsl(${theme.tint})` : undefined,
+              borderColor: theme ? `hsl(${theme.part} / 0.35)` : undefined,
+              // coloured rail down the left edge of each part
+              boxShadow: theme ? `inset 5px 0 0 hsl(${theme.part} / 0.8)` : undefined,
+            }}
+          >
+            <article
+              className={`max-w-[68ch] mx-auto text-lg leading-relaxed [&>h2:first-child]:mt-0 [&>h2:first-child]:pt-0 [&>h2:first-child]:border-t-0 ${
+                isAppendix ? 'text-foreground/65 [&_strong]:text-white/75 [&_h2]:text-white/80' : 'text-foreground/90'
+              }`}
+            >
+              <EssayMarkdown content={segment} />
+            </article>
+          </section>
+        );
+      })}
+    </>
+  );
+};
 
 export default EssayMarkdown;

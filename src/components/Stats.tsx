@@ -1,7 +1,7 @@
 const Stats = () => {
   const stats = [
     { id: '01', value: '15+', label: 'Years in data & AI' },
-    { id: '02', value: '1st', label: 'Book on GANs (best-seller)' },
+    { id: '02', value: '1st', label: 'GANs in Action: first book on GANs' },
     { id: '03', value: 'Exit', label: 'Hypermile (YC-backed), acquired' },
     { id: '04', value: 'Oxford', label: 'Alumnus & guest lecturer' },
   ];

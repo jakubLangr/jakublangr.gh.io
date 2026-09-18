@@ -80,7 +80,7 @@ const Hero = () => {
             <span className="bp-tick bp-tick-bl" />
             <span className="bp-tick bp-tick-br" />
             <div className="bp-row"><span className="bp-k">Exit</span><span className="bp-v">Hypermile → Konboi</span></div>
-            <div className="bp-row"><span className="bp-k">Book</span><span className="bp-v">Best-seller (GenAI)</span></div>
+            <div className="bp-row"><span className="bp-k">Book</span><span className="bp-v"><a href="https://www.manning.com/books/gans-in-action" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-smooth">GANs in Action</a> (Manning), best-seller</span></div>
             <div className="bp-row"><span className="bp-k">Backing</span><span className="bp-v">Y Combinator</span></div>
             <div className="bp-row"><span className="bp-k">Patent</span><span className="bp-v">US PTO — AI climate</span></div>
           </aside>
