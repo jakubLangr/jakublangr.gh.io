@@ -78,6 +78,15 @@ const hiddenDebt = [
   { name: 'Obligations off the books', v: 1.65 },
 ];
 
+// Chinese students returning after studies abroad: post-study returnees as % of outbound students.
+// China Ministry of Education, as charted by The Economist ("Swimming home"); values read approximately
+// from that chart. No data 2020–24. 2025 ≈ 536k returnees (ICEF Monitor, 2026).
+const returning = [
+  [2000, 18], [2001, 9], [2002, 9], [2003, 12], [2004, 16], [2005, 25], [2006, 26], [2007, 25],
+  [2008, 33], [2009, 42], [2010, 42], [2011, 50], [2012, 63], [2013, 80], [2014, 74], [2015, 73],
+  [2016, 74], [2017, 74], [2018, 73], [2019, 77], [2025, 89],
+].map(([year, pct]) => ({ year, pct }));
+
 const Frame = ({ title, source, action, raw, children }: { title: string; source: string; action?: React.ReactNode; raw?: boolean; children: React.ReactNode }) => (
   <figure className="bp-panel my-10 p-4 sm:p-6 not-prose">
     <span className="bp-tick bp-tick-tl" />
@@ -159,6 +168,25 @@ const charts: Record<string, () => JSX.Element> = {
           <LabelList dataKey="v" position="top" fill={PAPER} fontSize={12} formatter={(v: number) => `$${v}tn`} />
         </Bar>
       </BarChart>
+    </Frame>
+  ),
+  'returning-students': () => (
+    <Frame title="// fig. — Chinese students returning home after studying abroad, %" source="Post-study returnees as a share of outbound students. China Ministry of Education, as charted by The Economist ('Swimming home'); values read approximately from that chart. No data for 2020–24. 2025: ~536,000 returnees (ICEF Monitor, 2026).">
+      <LineChart data={returning} margin={{ top: 16, right: 24, left: -8, bottom: 0 }}>
+        <CartesianGrid stroke={GRID} vertical={false} />
+        <XAxis dataKey="year" type="number" domain={[2000, 2025]} ticks={[2000, 2005, 2010, 2015, 2020, 2025]} tick={TICK} stroke={GRID} />
+        <YAxis domain={[0, 100]} ticks={[0, 25, 50, 75, 100]} tickFormatter={v => `${v}%`} tick={TICK} stroke={GRID} />
+        <Tooltip {...tooltipStyle} formatter={(v: number) => `${v}%`} />
+        <Line dataKey="pct" name="Returning to China" stroke={CORAL} strokeWidth={2.5} dot={{ r: 3, fill: CORAL }}>
+          <LabelList
+            content={({ x, y, index }) => {
+              const d = returning[index as number];
+              if (!d || (d.year !== 2001 && d.year !== 2025)) return null;
+              return <text x={Number(x)} y={Number(y) - 12} fill={PAPER} fontSize={12} fontWeight={600} textAnchor="middle">{d.pct}%</text>;
+            }}
+          />
+        </Line>
+      </LineChart>
     </Frame>
   ),
   'token-price': () => <TokenPriceChart />,
