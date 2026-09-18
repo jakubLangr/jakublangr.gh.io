@@ -1,5 +1,12 @@
 import { Link } from 'react-router-dom';
 
+const metrics = [
+  { id: '01', value: '15+', label: 'Years in data & AI' },
+  { id: '02', value: '1st', label: 'Book on GANs, best-seller' },
+  { id: '03', value: 'Exit', label: 'YC-backed startup, acquired' },
+  { id: '04', value: 'Oxford', label: 'Alumnus & guest lecturer' },
+];
+
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -37,6 +44,12 @@ const Hero = () => {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/about" className="bp-cta">Read the full profile</Link>
+              <Link
+                to="/articles"
+                className="bp-mono inline-block text-sm uppercase tracking-[0.12em] text-foreground px-5 py-[0.85rem] border border-border hover:border-accent hover:text-accent transition-smooth"
+              >
+                Articles
+              </Link>
               <button
                 onClick={() => scrollToSection('contact')}
                 className="bp-mono inline-block text-sm uppercase tracking-[0.12em] text-foreground px-5 py-[0.85rem] border border-border hover:border-accent hover:text-accent transition-smooth"
@@ -73,16 +86,30 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right: spec callout */}
-          <aside className="bp-panel p-5 lg:mt-2">
+          {/* Right: key facts (metrics + credentials) */}
+          <aside className="bp-panel lg:mt-2">
             <span className="bp-tick bp-tick-tl" />
             <span className="bp-tick bp-tick-tr" />
             <span className="bp-tick bp-tick-bl" />
             <span className="bp-tick bp-tick-br" />
-            <div className="bp-row"><span className="bp-k">Exit</span><span className="bp-v">Hypermile → Konboi</span></div>
-            <div className="bp-row"><span className="bp-k">Book</span><span className="bp-v"><a href="https://www.manning.com/books/gans-in-action" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-smooth">GANs in Action</a> (Manning), best-seller</span></div>
-            <div className="bp-row"><span className="bp-k">Backing</span><span className="bp-v">Y Combinator</span></div>
-            <div className="bp-row"><span className="bp-k">Patent</span><span className="bp-v">US PTO — AI climate</span></div>
+            <div className="grid grid-cols-2 border-b border-[hsl(214_45%_46%)]">
+              {metrics.map((m, i) => (
+                <div
+                  key={m.id}
+                  className={`bp-gauge !py-5 ${i % 2 === 0 ? '' : '!border-r-0'} ${i < 2 ? 'border-b border-[hsl(214_45%_46%)]' : ''}`}
+                >
+                  <span className="bp-id">{m.id}</span>
+                  <div className="bp-num text-white tabular-nums !text-3xl">{m.value}</div>
+                  <div className="bp-lbl">{m.label}</div>
+                </div>
+              ))}
+            </div>
+            <div className="px-5 py-2">
+              <div className="bp-row"><span className="bp-k">Book</span><span className="bp-v"><a href="https://www.manning.com/books/gans-in-action" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-smooth">GANs in Action</a> (Manning)</span></div>
+              <div className="bp-row"><span className="bp-k">Exit</span><span className="bp-v">Hypermile → Konboi</span></div>
+              <div className="bp-row"><span className="bp-k">Backing</span><span className="bp-v">Y Combinator</span></div>
+              <div className="bp-row"><span className="bp-k">Patent</span><span className="bp-v">US PTO — AI climate</span></div>
+            </div>
           </aside>
         </div>
       </div>
