@@ -22,7 +22,7 @@ const PasswordGate = ({ onUnlock }: { onUnlock: (password: string) => Promise<bo
           <span className="bp-tick bp-tick-tr" />
           <span className="bp-tick bp-tick-bl" />
           <span className="bp-tick bp-tick-br" />
-          <span className="bp-kicker block mb-4">// restricted — draft</span>
+          <span className="bp-kicker block mb-4">// restricted · draft</span>
           <h1 className="text-2xl font-bold text-white mb-2">This essay is password-protected.</h1>
           <p className="text-muted-foreground mb-6">Enter the password you were sent to read it.</p>
           <input

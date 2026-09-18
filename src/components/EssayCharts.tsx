@@ -108,7 +108,7 @@ const Frame = ({ title, source, action, raw, children }: { title: string; source
 
 const charts: Record<string, () => JSX.Element> = {
   trade: () => (
-    <Frame title="// fig. — EU trade balance with the US, USD bn" source="Eurostat / Statista (28 Jul 2025). Intermediate years read approximately from the source chart. Services are not only software.">
+    <Frame title="// fig. EU trade balance with the US, USD bn" source="Eurostat / Statista (28 Jul 2025). Intermediate years read approximately from the source chart. Services are not only software.">
       <LineChart data={trade} margin={{ top: 8, right: 16, left: -8, bottom: 0 }}>
         <CartesianGrid stroke={GRID} vertical={false} />
         <XAxis dataKey="year" tick={TICK} stroke={GRID} />
@@ -123,7 +123,7 @@ const charts: Record<string, () => JSX.Element> = {
     </Frame>
   ),
   'bending-spoons': () => (
-    <Frame title="// fig. — what Bending Spoons paid vs peak valuation, USD bn" source="Peak: private funding rounds (Miro 2022, Airtable 2021); Vimeo market value 2021. Paid: Bending Spoons announcements (Vimeo 2025; Airtable closed 4 Sep 2026; Miro agreed 10 Sep 2026).">
+    <Frame title="// fig. what Bending Spoons paid vs peak valuation, USD bn" source="Peak: private funding rounds (Miro 2022, Airtable 2021); Vimeo market value 2021. Paid: Bending Spoons announcements (Vimeo 2025; Airtable closed 4 Sep 2026; Miro agreed 10 Sep 2026).">
       <BarChart data={bendingSpoons} layout="vertical" margin={{ top: 0, right: 48, left: 8, bottom: 0 }} barGap={4}>
         <XAxis type="number" hide domain={[0, 19]} />
         <YAxis type="category" dataKey="name" tick={TICK} stroke={GRID} width={70} />
@@ -138,7 +138,7 @@ const charts: Record<string, () => JSX.Element> = {
     </Frame>
   ),
   'europe-industry': () => (
-    <Frame raw title="// fig. — who owns the real world: Europe vs the US" source="Manufacturing share of GDP: World Bank (EU, 2024), BEA (US, Q1 2026). Machinery exports: VDMA (2024). Robot density: IFR World Robotics 2025 (2024 data).">
+    <Frame raw title="// fig. who owns the real world: Europe vs the US" source="Manufacturing share of GDP: World Bank (EU, 2024), BEA (US, Q1 2026). Machinery exports: VDMA (2024). Robot density: IFR World Robotics 2025 (2024 data).">
       <div className="grid gap-6 sm:grid-cols-3">
         {industry.map(m => {
           const max = Math.max(m.eu, m.us);
@@ -158,7 +158,7 @@ const charts: Record<string, () => JSX.Element> = {
     </Frame>
   ),
   'hidden-debt': () => (
-    <Frame title="// fig. — five US tech giants: debt on vs off the books, USD tn" source="Nikkei Asia analysis (21 Jul 2026) of Alphabet, Amazon, Meta, Microsoft and Oracle. Off-balance-sheet items: data-centre leases not yet started, take-or-pay chip contracts, joint-venture financing.">
+    <Frame title="// fig. five US tech giants: debt on vs off the books, USD tn" source="Nikkei Asia analysis (21 Jul 2026) of Alphabet, Amazon, Meta, Microsoft and Oracle. Off-balance-sheet items: data-centre leases not yet started, take-or-pay chip contracts, joint-venture financing.">
       <BarChart data={hiddenDebt} margin={{ top: 24, right: 16, left: -8, bottom: 0 }}>
         <CartesianGrid stroke={GRID} vertical={false} />
         <XAxis dataKey="name" tick={TICK} stroke={GRID} />
@@ -171,7 +171,7 @@ const charts: Record<string, () => JSX.Element> = {
     </Frame>
   ),
   'returning-students': () => (
-    <Frame title="// fig. — Chinese students returning home after studying abroad, %" source="Post-study returnees as a share of outbound students. China Ministry of Education, as charted by The Economist ('Swimming home'); values read approximately from that chart. No data for 2020–24. 2025: ~536,000 returnees (ICEF Monitor, 2026).">
+    <Frame title="// fig. Chinese students returning home after studying abroad, %" source="Post-study returnees as a share of outbound students. China Ministry of Education, as charted by The Economist ('Swimming home'); values read approximately from that chart. No data for 2020–24. 2025: ~536,000 returnees (ICEF Monitor, 2026).">
       <LineChart data={returning} margin={{ top: 16, right: 24, left: -8, bottom: 0 }}>
         <CartesianGrid stroke={GRID} vertical={false} />
         <XAxis dataKey="year" type="number" domain={[2000, 2025]} ticks={[2000, 2005, 2010, 2015, 2020, 2025]} tick={TICK} stroke={GRID} />
@@ -192,7 +192,7 @@ const charts: Record<string, () => JSX.Element> = {
   'token-price': () => <TokenPriceChart />,
   'dc-per-capita': () => <DataCentreChart />,
   capacity: () => (
-    <Frame title="// fig. — installed data-centre capacity, GW" source="IEA, Key Questions on Energy and AI (April 2026), table A.2, p. 109. 2030: base case.">
+    <Frame title="// fig. installed data-centre capacity, GW" source="IEA, Key Questions on Energy and AI (April 2026), table A.2, p. 109. 2030: base case.">
       <BarChart data={capacity} margin={{ top: 24, right: 16, left: -8, bottom: 0 }}>
         <CartesianGrid stroke={GRID} vertical={false} />
         <XAxis dataKey="year" tick={TICK} stroke={GRID} />
@@ -213,7 +213,7 @@ const charts: Record<string, () => JSX.Element> = {
     </Frame>
   ),
   capex: () => (
-    <Frame title="// fig. — big-four hyperscaler capex, USD" source="Amazon, Microsoft, Alphabet, Meta. Company filings (2024–25); 2026 = midpoint of guidance after July 2026 earnings; 2027 = Moody's projection for a wider group incl. Oracle and CoreWeave.">
+    <Frame title="// fig. big-four hyperscaler capex, USD" source="Amazon, Microsoft, Alphabet, Meta. Company filings (2024–25); 2026 = midpoint of guidance after July 2026 earnings; 2027 = Moody's projection for a wider group incl. Oracle and CoreWeave.">
       <BarChart data={capex} margin={{ top: 24, right: 16, left: -8, bottom: 0 }}>
         <CartesianGrid stroke={GRID} vertical={false} />
         <XAxis dataKey="year" tick={TICK} stroke={GRID} />
@@ -233,7 +233,7 @@ const DataCentreChart = () => {
   const data = [...dataCentres].sort((a, b) => b[key] - a[key]);
   return (
     <Frame
-      title={perCapita ? '// fig. — data centres per 10 million people, May 2026' : '// fig. — registered data centres, May 2026'}
+      title={perCapita ? '// fig. data centres per 10 million people, May 2026' : '// fig. registered data centres, May 2026'}
       source="Registered sites: Cloudscene via MUFG, Bottlenecks to Scaling AI (June 2026), p. 34. Per-person figures use UN population estimates, 2025. Count of sites, not megawatts."
       action={<ScaleToggle on={perCapita} onClick={() => setPerCapita(p => !p)} onLabel="Total" offLabel="Per person" />}
     >
@@ -272,8 +272,8 @@ const TokenPriceChart = () => {
   );
   return (
     <Frame
-      title="// fig. — price of intelligence, USD per 1M input tokens"
-      source="OpenAI launch list prices. Smarts = Artificial Analysis Intelligence Index v4.3 (estimated): GPT-5 nano scores 13 vs GPT-4's 7 — the cheaper model is also the smarter one. Dashed line: price halving every 2 years (Moore's law), not an API price forecast."
+      title="// fig. price of intelligence, USD per 1M input tokens"
+      source="OpenAI launch list prices. Smarts = Artificial Analysis Intelligence Index v4.3 (estimated): GPT-5 nano scores 13 vs GPT-4's 7, so the cheaper model is also the smarter one. Dashed line: price halving every 2 years (Moore's law), not an API price forecast."
       action={toggle}
     >
       <LineChart data={tokenPrice} margin={{ top: 8, right: 16, left: -4, bottom: 0 }}>
