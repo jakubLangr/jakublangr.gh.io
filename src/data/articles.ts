@@ -3,6 +3,17 @@ import { Article } from '@/lib/articles';
 // Article data extracted from content files
 export const articles: Article[] = [
   {
+    slug: 'europe-ai',
+    title: 'How Europe Will Leave the US in the Dust Thanks to AI',
+    date: '2026-09-18',
+    tags: ['AI', 'Europe', 'geopolitics', 'industry'],
+    category: 'non-technical',
+    author: 'Jakub Langr',
+    summary: 'AI has made software cheap. America is betting close to a trillion dollars a year on data centres, while Europe owns the part of the economy that stays expensive. Password-protected draft.',
+    content: '',
+    href: '/essays/europe-ai',
+  },
+  {
     slug: 'the-opus-renaissance',
     title: 'The Opus Renaissance: Rebirth of the Old Continent',
     date: '2026-03-12',

@@ -1,9 +1,9 @@
 const Stats = () => {
   const stats = [
-    { id: '01', value: '$32M', label: 'Raised as CEO / CTO' },
-    { id: '02', value: '10+', label: 'Years in data & AI' },
-    { id: '03', value: '1st', label: 'Book on GANs (best-seller)' },
-    { id: '04', value: 'YC', label: 'Y Combinator-backed' },
+    { id: '01', value: '15+', label: 'Years in data & AI' },
+    { id: '02', value: '1st', label: 'Book on GANs (best-seller)' },
+    { id: '03', value: 'Exit', label: 'Hypermile (YC-backed), acquired' },
+    { id: '04', value: 'Oxford', label: 'Alumnus & guest lecturer' },
   ];
 
   return (
