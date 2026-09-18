@@ -14,7 +14,7 @@ const AboutPage = () => {
             <span className="bp-kicker block mb-5">// dossier — about</span>
             <h1 className="text-hero text-white">Jakub Langr</h1>
             <span className="bp-dim mt-3">
-              AI researcher · author · founder&nbsp;&nbsp;·&nbsp;&nbsp;↕ 10+ yrs in data &amp; AI
+              AI researcher · author · founder&nbsp;&nbsp;·&nbsp;&nbsp;↕ 15+ yrs in data &amp; AI
             </span>
           </div>
         </section>
@@ -26,7 +26,7 @@ const AboutPage = () => {
             <div className="grid md:grid-cols-[1fr_1fr] gap-8 lg:gap-12">
               <div className="space-y-4 text-foreground/90 leading-relaxed text-lg max-w-[60ch]">
                 <p>
-                  Jakub has worked in data &amp; AI for over 10 years. He is currently working on{' '}
+                  Jakub has worked in data &amp; AI for over 15 years. He is currently working on{' '}
                   <a
                     href="https://rig.so"
                     target="_blank"
@@ -51,7 +51,7 @@ const AboutPage = () => {
                 <div><span className="text-accent">ROLE&nbsp;&nbsp;&nbsp;&nbsp;</span> AI researcher / author / founder</div>
                 <div><span className="text-accent">NOW&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Rig — data infrastructure for teams</div>
                 <div><span className="text-accent">PREV&nbsp;&nbsp;&nbsp;&nbsp;</span> Tenderd · Palantir · Hypermile</div>
-                <div><span className="text-accent">RAISED&nbsp;&nbsp;</span> ~$32M as CEO / CTO</div>
+                <div><span className="text-accent">EXIT&nbsp;&nbsp;&nbsp;&nbsp;</span> Hypermile (YC-backed) → Konboi</div>
                 <div><span className="text-accent">EDU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> University of Oxford</div>
                 <div><span className="text-accent">PATENT&nbsp;&nbsp;</span> US PTO — AI climate tech</div>
               </aside>

@@ -11,7 +11,7 @@ import { articles } from '@/data/articles';
 import { ArrowRight } from 'lucide-react';
 
 const Index = () => {
-  const featuredArticle = articles[0];
+  const featuredArticle = articles.find(a => !a.href) ?? articles[0];
 
   return (
     <div className="min-h-screen">

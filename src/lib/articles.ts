@@ -9,6 +9,7 @@ export interface Article {
   author: string;
   summary: string;
   content: string;
+  href?: string; // set for articles not rendered by ArticlePage (e.g. password-protected essays)
 }
 
 export const parseArticle = (filename: string, content: string): Article => {

@@ -19,7 +19,7 @@ const Hero = () => {
             </h1>
 
             <span className="bp-dim mt-3">
-              ⟷ AI researcher · author · founder&nbsp;&nbsp;·&nbsp;&nbsp;↕ 10+ yrs
+              ⟷ AI researcher · author · founder&nbsp;&nbsp;·&nbsp;&nbsp;↕ 15+ yrs
             </span>
 
             <p className="mt-6 text-lg md:text-xl text-foreground/90 max-w-xl leading-relaxed">
@@ -79,7 +79,7 @@ const Hero = () => {
             <span className="bp-tick bp-tick-tr" />
             <span className="bp-tick bp-tick-bl" />
             <span className="bp-tick bp-tick-br" />
-            <div className="bp-row"><span className="bp-k">Raised</span><span className="bp-v">$32M</span></div>
+            <div className="bp-row"><span className="bp-k">Exit</span><span className="bp-v">Hypermile → Konboi</span></div>
             <div className="bp-row"><span className="bp-k">Book</span><span className="bp-v">Best-seller (GenAI)</span></div>
             <div className="bp-row"><span className="bp-k">Backing</span><span className="bp-v">Y Combinator</span></div>
             <div className="bp-row"><span className="bp-k">Patent</span><span className="bp-v">US PTO — AI climate</span></div>
