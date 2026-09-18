@@ -35,15 +35,20 @@ const tokenPrice = [
   { t: 2026.7, label: 'today', price: 0.05, moore: 8.92 },
 ];
 
-const dcCounts = [
-  { country: 'USA', n: 5427 }, { country: 'Germany', n: 529 }, { country: 'UK', n: 523 },
-  { country: 'China', n: 449 }, { country: 'Canada', n: 337 },
-];
 
 const capacity = [
-  { year: '2024', US: 42, China: 24, Rest: 31 },
-  { year: '2025', US: 52, China: 28, Rest: 34 },
-  { year: '2030e', US: 100, China: 67, Rest: 59 },
+  { year: '2024', US: 42, China: 24, Rest: 31, total: 97 },
+  { year: '2025', US: 52, China: 28, Rest: 34, total: 114 },
+  { year: '2030e', US: 100, China: 67, Rest: 59, total: 226 },
+];
+
+// Registered data-centre sites (Cloudscene, May 2026) per 10 million people (UN population, 2025)
+const dcPerCapita = [
+  { country: 'USA', v: 160 },
+  { country: 'Canada', v: 82 },
+  { country: 'UK', v: 76 },
+  { country: 'Germany', v: 63 },
+  { country: 'China', v: 3.2 },
 ];
 
 const capex = [
@@ -157,29 +162,36 @@ const charts: Record<string, () => JSX.Element> = {
     </Frame>
   ),
   'token-price': () => <TokenPriceChart />,
-  'dc-count': () => (
-    <Frame title="// fig. — registered data centres, May 2026" source="Cloudscene via MUFG, Bottlenecks to Scaling AI (June 2026), p. 34. Count of sites, not megawatts.">
-      <BarChart data={dcCounts} layout="vertical" margin={{ top: 0, right: 56, left: 8, bottom: 0 }}>
+  'dc-per-capita': () => (
+    <Frame title="// fig. — data centres per 10 million people, May 2026" source="Registered sites: Cloudscene via MUFG, Bottlenecks to Scaling AI (June 2026), p. 34 (USA 5,427; Germany 529; UK 523; China 449; Canada 337). Population: UN, 2025. Count of sites, not megawatts.">
+      <BarChart data={dcPerCapita} layout="vertical" margin={{ top: 0, right: 56, left: 8, bottom: 0 }}>
         <XAxis type="number" hide />
         <YAxis type="category" dataKey="country" tick={TICK} stroke={GRID} width={70} />
-        <Bar dataKey="n" radius={0}>
-          {dcCounts.map(d => <Cell key={d.country} fill={d.country === 'USA' ? AMBER : d.country === 'China' ? CORAL : PAPER} />)}
-          <LabelList dataKey="n" position="right" fill={PAPER} fontSize={12} formatter={(v: number) => v.toLocaleString('en-US')} />
+        <Bar dataKey="v">
+          {dcPerCapita.map(d => <Cell key={d.country} fill={d.country === 'USA' ? AMBER : d.country === 'China' ? CORAL : PAPER} />)}
+          <LabelList dataKey="v" position="right" fill={PAPER} fontSize={12} />
         </Bar>
       </BarChart>
     </Frame>
   ),
   capacity: () => (
     <Frame title="// fig. — installed data-centre capacity, GW" source="IEA, Key Questions on Energy and AI (April 2026), table A.2, p. 109. 2030: base case.">
-      <BarChart data={capacity} margin={{ top: 8, right: 16, left: -8, bottom: 0 }}>
+      <BarChart data={capacity} margin={{ top: 24, right: 16, left: -8, bottom: 0 }}>
         <CartesianGrid stroke={GRID} vertical={false} />
         <XAxis dataKey="year" tick={TICK} stroke={GRID} />
         <YAxis tick={TICK} stroke={GRID} />
         <Tooltip {...tooltipStyle} cursor={{ fill: 'hsl(0 0% 100% / 0.04)' }} />
         <Legend wrapperStyle={{ fontSize: 12 }} />
-        <Bar dataKey="US" stackId="a" fill={CYAN} />
-        <Bar dataKey="China" stackId="a" fill={AMBER} />
-        <Bar dataKey="Rest" name="Europe & rest of world" stackId="a" fill={PAPER} />
+        <Bar dataKey="US" stackId="a" fill={CYAN}>
+          <LabelList dataKey="US" position="center" fill="#0b2350" fontSize={12} fontWeight={600} />
+        </Bar>
+        <Bar dataKey="China" stackId="a" fill={AMBER}>
+          <LabelList dataKey="China" position="center" fill="#0b2350" fontSize={12} fontWeight={600} />
+        </Bar>
+        <Bar dataKey="Rest" name="Europe & rest of world" stackId="a" fill={PAPER}>
+          <LabelList dataKey="Rest" position="center" fill="#0b2350" fontSize={12} fontWeight={600} />
+          <LabelList dataKey="total" position="top" fill={PAPER} fontSize={13} fontWeight={600} formatter={(v: number) => `${v} GW`} />
+        </Bar>
       </BarChart>
     </Frame>
   ),

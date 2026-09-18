@@ -9,7 +9,6 @@ import ArticlesList from "./pages/ArticlesList";
 import ArticlePage from "./pages/ArticlePage";
 import AboutPage from "./pages/AboutPage";
 import ProtectedEssayPage from "./pages/ProtectedEssayPage";
-import EssayComparePage from "./pages/EssayComparePage";
 
 const queryClient = new QueryClient();
 
@@ -29,7 +28,6 @@ const App = () => (
           <Route path="/articles" element={<ArticlesList />} />
           <Route path="/articles/:slug" element={<ArticlePage />} />
           <Route path="/essays/:slug" element={<ProtectedEssayPage />} />
-          <Route path="/essays/:slug/compare/:other" element={<EssayComparePage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
