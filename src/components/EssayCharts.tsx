@@ -53,7 +53,27 @@ const capex = [
   { year: '2027e', v: 1000, label: '~$1tn' },
 ];
 
-const Frame = ({ title, source, action, children }: { title: string; source: string; action?: React.ReactNode; children: React.ReactNode }) => (
+// Bending Spoons acquisitions: peak private/public valuation vs price paid, USD bn
+const bendingSpoons = [
+  { name: 'Miro', peak: 17.5, paid: 1.36 },
+  { name: 'Airtable', peak: 11, paid: 1.29 },
+  { name: 'Vimeo', peak: 8, paid: 1.38 },
+];
+
+// Europe vs US industrial base (World Bank / BEA; VDMA 2024; IFR World Robotics 2025)
+const industry = [
+  { label: 'Manufacturing, % of GDP', eu: 14, us: 9, euName: 'EU', fmt: (v: number) => `${v}%` },
+  { label: 'Share of world machinery exports', eu: 14, us: 8.6, euName: 'Germany', fmt: (v: number) => `${v}%` },
+  { label: 'Robots per 10,000 factory workers', eu: 449, us: 307, euName: 'Germany', fmt: (v: number) => `${v}` },
+];
+
+// Nikkei Asia (Jul 2026): Alphabet, Amazon, Meta, Microsoft, Oracle
+const hiddenDebt = [
+  { name: 'Debt on the books', v: 1.35 },
+  { name: 'Obligations off the books', v: 1.65 },
+];
+
+const Frame = ({ title, source, action, raw, children }: { title: string; source: string; action?: React.ReactNode; raw?: boolean; children: React.ReactNode }) => (
   <figure className="bp-panel my-10 p-4 sm:p-6 not-prose">
     <span className="bp-tick bp-tick-tl" />
     <span className="bp-tick bp-tick-tr" />
@@ -63,9 +83,11 @@ const Frame = ({ title, source, action, children }: { title: string; source: str
       <figcaption className="bp-fig !mb-0">{title}</figcaption>
       {action}
     </div>
-    <div className="h-[280px] sm:h-[320px]">
-      <ResponsiveContainer width="100%" height="100%">{children as React.ReactElement}</ResponsiveContainer>
-    </div>
+    {raw ? children : (
+      <div className="h-[280px] sm:h-[320px]">
+        <ResponsiveContainer width="100%" height="100%">{children as React.ReactElement}</ResponsiveContainer>
+      </div>
+    )}
     <p className="bp-mono text-[0.68rem] leading-relaxed text-muted-foreground mt-3">{source}</p>
   </figure>
 );
@@ -84,6 +106,54 @@ const charts: Record<string, () => JSX.Element> = {
         <Line dataKey="services" name="Services" stroke={CORAL} strokeWidth={2.5} dot={false} />
         <Line dataKey="total" name="Overall" stroke={AMBER} strokeWidth={2} strokeDasharray="5 4" dot={false} />
       </LineChart>
+    </Frame>
+  ),
+  'bending-spoons': () => (
+    <Frame title="// fig. — what Bending Spoons paid vs peak valuation, USD bn" source="Peak: private funding rounds (Miro 2022, Airtable 2021); Vimeo market value 2021. Paid: Bending Spoons announcements (Vimeo 2025; Airtable closed 4 Sep 2026; Miro agreed 10 Sep 2026).">
+      <BarChart data={bendingSpoons} layout="vertical" margin={{ top: 0, right: 48, left: 8, bottom: 0 }} barGap={4}>
+        <XAxis type="number" hide domain={[0, 19]} />
+        <YAxis type="category" dataKey="name" tick={TICK} stroke={GRID} width={70} />
+        <Legend wrapperStyle={{ fontSize: 12 }} />
+        <Bar dataKey="peak" name="Peak valuation" fill={PAPER} fillOpacity={0.35}>
+          <LabelList dataKey="peak" position="right" fill={PAPER} fontSize={12} formatter={(v: number) => `$${v}bn`} />
+        </Bar>
+        <Bar dataKey="paid" name="Price paid" fill={CYAN}>
+          <LabelList dataKey="paid" position="right" fill={CYAN} fontSize={12} formatter={(v: number) => `$${v}bn`} />
+        </Bar>
+      </BarChart>
+    </Frame>
+  ),
+  'europe-industry': () => (
+    <Frame raw title="// fig. — who owns the real world: Europe vs the US" source="Manufacturing share of GDP: World Bank (EU, 2024), BEA (US, Q1 2026). Machinery exports: VDMA (2024). Robot density: IFR World Robotics 2025 (2024 data).">
+      <div className="grid gap-6 sm:grid-cols-3">
+        {industry.map(m => {
+          const max = Math.max(m.eu, m.us);
+          return (
+            <div key={m.label}>
+              <div className="bp-mono text-[0.7rem] uppercase tracking-[0.1em] text-muted-foreground mb-3 min-h-[2.2em]">{m.label}</div>
+              {[{ who: m.euName, v: m.eu, c: CYAN }, { who: 'US', v: m.us, c: PAPER }].map(r => (
+                <div key={r.who} className="mb-2">
+                  <div className="flex justify-between text-sm mb-1"><span className="text-foreground/80">{r.who}</span><span className="font-semibold text-white tabular-nums">{m.fmt(r.v)}</span></div>
+                  <div className="h-2.5 bg-white/[0.06]"><div className="h-full" style={{ width: `${(r.v / max) * 100}%`, background: r.c, opacity: r.who === 'US' ? 0.55 : 1 }} /></div>
+                </div>
+              ))}
+            </div>
+          );
+        })}
+      </div>
+    </Frame>
+  ),
+  'hidden-debt': () => (
+    <Frame title="// fig. — five US tech giants: debt on vs off the books, USD tn" source="Nikkei Asia analysis (21 Jul 2026) of Alphabet, Amazon, Meta, Microsoft and Oracle. Off-balance-sheet items: data-centre leases not yet started, take-or-pay chip contracts, joint-venture financing.">
+      <BarChart data={hiddenDebt} margin={{ top: 24, right: 16, left: -8, bottom: 0 }}>
+        <CartesianGrid stroke={GRID} vertical={false} />
+        <XAxis dataKey="name" tick={TICK} stroke={GRID} />
+        <YAxis tick={TICK} stroke={GRID} tickFormatter={v => `$${v}tn`} />
+        <Bar dataKey="v">
+          {hiddenDebt.map(d => <Cell key={d.name} fill={d.name.includes('off') ? CORAL : PAPER} />)}
+          <LabelList dataKey="v" position="top" fill={PAPER} fontSize={12} formatter={(v: number) => `$${v}tn`} />
+        </Bar>
+      </BarChart>
     </Frame>
   ),
   'token-price': () => <TokenPriceChart />,
