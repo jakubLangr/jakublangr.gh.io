@@ -42,13 +42,13 @@ const capacity = [
   { year: '2030e', US: 100, China: 67, Rest: 59, total: 226 },
 ];
 
-// Registered data-centre sites (Cloudscene, May 2026) per 10 million people (UN population, 2025)
-const dcPerCapita = [
-  { country: 'USA', v: 160 },
-  { country: 'Canada', v: 82 },
-  { country: 'UK', v: 76 },
-  { country: 'Germany', v: 63 },
-  { country: 'China', v: 3.2 },
+// Registered data-centre sites (Cloudscene, May 2026); per 10 million people uses UN population, 2025
+const dataCentres = [
+  { country: 'USA', sites: 5427, perCapita: 160 },
+  { country: 'Germany', sites: 529, perCapita: 63 },
+  { country: 'UK', sites: 523, perCapita: 76 },
+  { country: 'China', sites: 449, perCapita: 3.2 },
+  { country: 'Canada', sites: 337, perCapita: 82 },
 ];
 
 const capex = [
@@ -190,18 +190,7 @@ const charts: Record<string, () => JSX.Element> = {
     </Frame>
   ),
   'token-price': () => <TokenPriceChart />,
-  'dc-per-capita': () => (
-    <Frame title="// fig. — data centres per 10 million people, May 2026" source="Registered sites: Cloudscene via MUFG, Bottlenecks to Scaling AI (June 2026), p. 34 (USA 5,427; Germany 529; UK 523; China 449; Canada 337). Population: UN, 2025. Count of sites, not megawatts.">
-      <BarChart data={dcPerCapita} layout="vertical" margin={{ top: 0, right: 56, left: 8, bottom: 0 }}>
-        <XAxis type="number" hide />
-        <YAxis type="category" dataKey="country" tick={TICK} stroke={GRID} width={70} />
-        <Bar dataKey="v">
-          {dcPerCapita.map(d => <Cell key={d.country} fill={d.country === 'USA' ? AMBER : d.country === 'China' ? CORAL : PAPER} />)}
-          <LabelList dataKey="v" position="right" fill={PAPER} fontSize={12} />
-        </Bar>
-      </BarChart>
-    </Frame>
-  ),
+  'dc-per-capita': () => <DataCentreChart />,
   capacity: () => (
     <Frame title="// fig. — installed data-centre capacity, GW" source="IEA, Key Questions on Energy and AI (April 2026), table A.2, p. 109. 2030: base case.">
       <BarChart data={capacity} margin={{ top: 24, right: 16, left: -8, bottom: 0 }}>
@@ -237,6 +226,38 @@ const charts: Record<string, () => JSX.Element> = {
     </Frame>
   ),
 };
+
+const DataCentreChart = () => {
+  const [perCapita, setPerCapita] = useState(false);
+  const key = perCapita ? 'perCapita' : 'sites';
+  const data = [...dataCentres].sort((a, b) => b[key] - a[key]);
+  return (
+    <Frame
+      title={perCapita ? '// fig. — data centres per 10 million people, May 2026' : '// fig. — registered data centres, May 2026'}
+      source="Registered sites: Cloudscene via MUFG, Bottlenecks to Scaling AI (June 2026), p. 34. Per-person figures use UN population estimates, 2025. Count of sites, not megawatts."
+      action={<ScaleToggle on={perCapita} onClick={() => setPerCapita(p => !p)} onLabel="Total" offLabel="Per person" />}
+    >
+      <BarChart data={data} layout="vertical" margin={{ top: 0, right: 56, left: 8, bottom: 0 }}>
+        <XAxis type="number" hide />
+        <YAxis type="category" dataKey="country" tick={TICK} stroke={GRID} width={70} />
+        <Bar dataKey={key} isAnimationActive={false}>
+          {data.map(d => <Cell key={d.country} fill={d.country === 'USA' ? AMBER : d.country === 'China' ? CORAL : PAPER} />)}
+          <LabelList dataKey={key} position="right" fill={PAPER} fontSize={12} formatter={(v: number) => v.toLocaleString('en-US')} />
+        </Bar>
+      </BarChart>
+    </Frame>
+  );
+};
+
+const ScaleToggle = ({ on, onClick, onLabel, offLabel }: { on: boolean; onClick: () => void; onLabel: string; offLabel: string }) => (
+  <button
+    type="button"
+    onClick={onClick}
+    className="shrink-0 bp-mono text-[0.68rem] uppercase tracking-[0.12em] border border-border px-2 py-1 text-muted-foreground hover:text-foreground hover:border-accent transition-smooth"
+  >
+    {on ? onLabel : offLabel}
+  </button>
+);
 
 const TokenPriceChart = () => {
   const [log, setLog] = useState(false);
