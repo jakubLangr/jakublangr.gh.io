@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PasswordGate from '@/components/PasswordGate';
 import { EssayDocument } from '@/components/EssayMarkdown';
-import { decryptEssay, hasEssay, storedPassword, storePassword } from '@/lib/protectedEssays';
+import { decryptEssay, hasEssay, reloadFresh, StaleBuildError, storedPassword, storePassword } from '@/lib/protectedEssays';
 
 const ProtectedEssayPage = () => {
   const { slug = '' } = useParams<{ slug: string }>();
@@ -15,7 +15,9 @@ const ProtectedEssayPage = () => {
       setContent(await decryptEssay(slug, pw));
       storePassword(pw);
       return true;
-    } catch {
+    } catch (e) {
+      // An outdated cached page can't load the essay file: reload instead of blaming the password
+      if (e instanceof StaleBuildError && reloadFresh()) return true;
       return false;
     }
   };

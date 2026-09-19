@@ -1,7 +1,7 @@
 // Encrypts a private markdown essay so only ciphertext ships in the public repo/bundle.
 // Usage: ESSAY_PASSWORD=... node scripts/encrypt-essay.mjs <slug>
 //   reads  private/<slug>.md
-//   writes src/data/protected/<slug>.json
+//   writes public/protected/<slug>.json
 import { readFileSync, writeFileSync } from 'node:fs';
 import { webcrypto as crypto } from 'node:crypto';
 
@@ -31,7 +31,7 @@ const ciphertext = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, new
 
 const b64 = (bytes) => Buffer.from(bytes).toString('base64');
 writeFileSync(
-  `src/data/protected/${slug}.json`,
+  `public/protected/${slug}.json`,
   JSON.stringify({ iterations: ITERATIONS, salt: b64(salt), iv: b64(iv), ciphertext: b64(new Uint8Array(ciphertext)) }) + '\n',
 );
-console.log(`Encrypted private/${slug}.md -> src/data/protected/${slug}.json`);
+console.log(`Encrypted private/${slug}.md -> public/protected/${slug}.json`);
