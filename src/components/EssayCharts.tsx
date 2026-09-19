@@ -33,7 +33,7 @@ const tokenPrice = [
   { t: 2025.29, label: 'GPT-4.1 nano', price: 0.1, aa: 8 },
   // qwen: the cheapest model at GPT-5 nano's level today, drawn as a separate segment from GPT-5 nano
   { t: 2025.6, label: 'GPT-5 nano', price: 0.05, aa: 13, pin: true, qwen: 0.05 },
-  { t: 2026.7, label: 'Qwen3.5 4B (Alibaba, open weights)', aa: 13.1, moore: 8.92, qwen: 0.025, pinQwen: true },
+  { t: 2026.7, label: 'Qwen3.5 4B (Alibaba, open weights)', aa: 13.1, moore: 8.92, qwen: 0.03, pinQwen: true },
 ];
 
 
@@ -274,7 +274,7 @@ const TokenPriceChart = () => {
   return (
     <Frame
       title="// fig. price of intelligence, USD per 1M input tokens"
-      source="OpenAI launch list prices. Intelligence Index = Artificial Analysis Intelligence Index v4.3, higher is better (estimated; hover any point for its score): GPT-5 nano scores 13 vs GPT-4's 7, so the cheaper model is also the smarter one. Today the cheapest model at that level is Alibaba's open-weight Qwen3.5 4B: Intelligence Index 13.1 (estimated) at $0.025, via DeepInfra, the only provider Artificial Analysis lists. At 4 billion parameters it also runs on a gaming graphics card from a few years ago, where the only cost is electricity. Dashed line: price halving every 2 years (Moore's law), not an API price forecast."
+      source="OpenAI launch list prices. Intelligence Index = Artificial Analysis Intelligence Index v4.3, higher is better (estimated; hover any point for its score): GPT-5 nano scores 13 vs GPT-4's 7, so the cheaper model is also the smarter one. Today the cheapest model at that level is Alibaba's open-weight Qwen3.5 4B: Intelligence Index 13.1 (estimated) at $0.03, via DeepInfra, the only provider Artificial Analysis lists. At 4 billion parameters it also runs on a gaming graphics card from a few years ago, where the only cost is electricity. Dashed line: price halving every 2 years (Moore's law), not an API price forecast."
       action={toggle}
     >
       <LineChart data={tokenPrice} margin={{ top: 28, right: 16, left: -4, bottom: 0 }}>
