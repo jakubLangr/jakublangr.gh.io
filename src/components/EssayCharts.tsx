@@ -31,8 +31,9 @@ const tokenPrice = [
   { t: 2024.37, label: "GPT-4o (score: Nov '24 version)", price: 5, aa: 8 },
   { t: 2024.54, label: 'GPT-4o mini', price: 0.15, aa: 7 },
   { t: 2025.29, label: 'GPT-4.1 nano', price: 0.1, aa: 8 },
-  { t: 2025.6, label: 'GPT-5 nano', price: 0.05, aa: 13, pin: true },
-  { t: 2026.7, label: 'GPT-5 nano (today)', price: 0.05, aa: 13, moore: 8.92, qwen: 0.03, qwenAa: 13.1 },
+  // qwen: the cheapest model at GPT-5 nano's level today, drawn as a separate segment from GPT-5 nano
+  { t: 2025.6, label: 'GPT-5 nano', price: 0.05, aa: 13, pin: true, qwen: 0.05 },
+  { t: 2026.7, label: 'Qwen3.5 4B (Alibaba, open weights)', aa: 13.1, moore: 8.92, qwen: 0.025, pinQwen: true },
 ];
 
 
@@ -273,7 +274,7 @@ const TokenPriceChart = () => {
   return (
     <Frame
       title="// fig. price of intelligence, USD per 1M input tokens"
-      source="OpenAI launch list prices. Smarts = Artificial Analysis Intelligence Index v4.3 (estimated; hover any point for its score): GPT-5 nano scores 13 vs GPT-4's 7, so the cheaper model is also the smarter one. Qwen3.5 4B (Alibaba, open weights) scores 13.1 (estimated) at $0.03, its current price via DeepInfra, the only provider Artificial Analysis lists. Dashed line: price halving every 2 years (Moore's law), not an API price forecast."
+      source="OpenAI launch list prices. Intelligence Index = Artificial Analysis Intelligence Index v4.3 (estimated; hover any point for its score): GPT-5 nano scores 13 vs GPT-4's 7, so the cheaper model is also the smarter one. Today the cheapest model at that level is Alibaba's open-weight Qwen3.5 4B: Intelligence Index 13.1 (estimated) at $0.025, via DeepInfra, the only provider Artificial Analysis lists. Dashed line: price halving every 2 years (Moore's law), not an API price forecast."
       action={toggle}
     >
       <LineChart data={tokenPrice} margin={{ top: 28, right: 16, left: -4, bottom: 0 }}>
@@ -284,10 +285,21 @@ const TokenPriceChart = () => {
         ) : (
           <YAxis key="linear" domain={[0, 30]} ticks={[0, 5, 10, 15, 20, 25, 30]} tickFormatter={v => `$${v}`} tick={TICK} stroke={GRID} />
         )}
-        <Tooltip {...tooltipStyle} labelFormatter={(_, p) => {
-          const d = p?.[0]?.payload;
-          return d ? `${d.label}${d.aa ? ` · AA Intelligence Index ${d.aa}` : ''}${d.qwenAa ? ` · Qwen3.5 4B: AA Intelligence Index ${d.qwenAa}` : ''}` : '';
-        }} formatter={(v: number) => `$${v}`} />
+        <Tooltip
+          content={({ active, payload }) => {
+            const d = active ? (payload?.[0]?.payload as (typeof tokenPrice)[number] | undefined) : undefined;
+            if (!d) return null;
+            const price = 'price' in d ? d.price : d.qwen;
+            return (
+              <div style={{ ...tooltipStyle.contentStyle, padding: '8px 10px' }}>
+                <div className="text-white font-semibold">{d.label}</div>
+                <div style={{ color: 'price' in d ? CYAN : CORAL }}>Launch price: ${price} per 1M input tokens</div>
+                <div className="text-foreground/80">AA Intelligence Index: {d.aa}</div>
+                {d.moore && <div style={{ color: AMBER }}>Moore's law pace: ${d.moore}</div>}
+              </div>
+            );
+          }}
+        />
         <Legend wrapperStyle={{ fontSize: 12 }} />
         <Line dataKey="price" name="Launch price" stroke={CYAN} strokeWidth={2.5} dot={{ r: 3.5, fill: CYAN }} isAnimationActive={false}>
           <LabelList
@@ -295,22 +307,38 @@ const TokenPriceChart = () => {
               const d = tokenPrice[index as number];
               if (!d?.pin) return null;
               return (
-                <text x={Number(x) + 8} y={Number(y) - 10} fill={PAPER} fontSize={12} fontWeight={600}>
-                  {d.label} · ${d.price} · smarts {d.aa}
+                <text
+                  x={index === 0 ? Number(x) + 8 : Number(x) - 8}
+                  y={index !== 0 && log ? Number(y) + 22 : Number(y) - 10}
+                  fill={PAPER}
+                  fontSize={12}
+                  fontWeight={600}
+                  textAnchor={index === 0 ? 'start' : 'end'}
+                >
+                  {d.label} · ${d.price} · Intelligence Index {d.aa}
                 </text>
               );
             }}
           />
         </Line>
         <Line dataKey="moore" name="Moore's law pace" stroke={AMBER} strokeWidth={2} strokeDasharray="6 4" dot={false} connectNulls isAnimationActive={false} />
-        <Line dataKey="qwen" name="Qwen3.5 4B (Alibaba, open weights)" stroke={CORAL} strokeWidth={0} dot={{ r: 5, fill: CORAL, stroke: CORAL }} isAnimationActive={false}>
+        <Line
+          dataKey="qwen"
+          name="Cheapest at GPT-5 nano's level today (Qwen3.5 4B, Alibaba)"
+          stroke={CORAL}
+          strokeWidth={2.5}
+          dot={({ cx, cy, index }) =>
+            tokenPrice[index]?.pinQwen ? <circle key={index} cx={cx} cy={cy} r={4.5} fill={CORAL} /> : <g key={index} />
+          }
+          isAnimationActive={false}
+        >
           <LabelList
             content={({ x, y, index }) => {
               const d = tokenPrice[index as number];
-              if (!d?.qwen) return null;
+              if (!d?.pinQwen) return null;
               return (
                 <text x={Number(x) - 8} y={log ? Number(y) + 18 : Number(y) - 30} fill={CORAL} fontSize={12} fontWeight={600} textAnchor="end">
-                  Qwen3.5 4B · ${d.qwen} · smarts {d.qwenAa}
+                  Qwen3.5 4B · ${d.qwen} · Intelligence Index {d.aa}
                 </text>
               );
             }}
