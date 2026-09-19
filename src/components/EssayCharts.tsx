@@ -274,7 +274,7 @@ const TokenPriceChart = () => {
   return (
     <Frame
       title="// fig. price of intelligence, USD per 1M input tokens"
-      source="OpenAI launch list prices. Intelligence Index = Artificial Analysis Intelligence Index v4.3 (estimated; hover any point for its score): GPT-5 nano scores 13 vs GPT-4's 7, so the cheaper model is also the smarter one. Today the cheapest model at that level is Alibaba's open-weight Qwen3.5 4B: Intelligence Index 13.1 (estimated) at $0.025, via DeepInfra, the only provider Artificial Analysis lists. Dashed line: price halving every 2 years (Moore's law), not an API price forecast."
+      source="OpenAI launch list prices. Intelligence Index = Artificial Analysis Intelligence Index v4.3, higher is better (estimated; hover any point for its score): GPT-5 nano scores 13 vs GPT-4's 7, so the cheaper model is also the smarter one. Today the cheapest model at that level is Alibaba's open-weight Qwen3.5 4B: Intelligence Index 13.1 (estimated) at $0.025, via DeepInfra, the only provider Artificial Analysis lists. At 4 billion parameters it also runs on a gaming graphics card from a few years ago, where the only cost is electricity. Dashed line: price halving every 2 years (Moore's law), not an API price forecast."
       action={toggle}
     >
       <LineChart data={tokenPrice} margin={{ top: 28, right: 16, left: -4, bottom: 0 }}>
@@ -294,7 +294,7 @@ const TokenPriceChart = () => {
               <div style={{ ...tooltipStyle.contentStyle, padding: '8px 10px' }}>
                 <div className="text-white font-semibold">{d.label}</div>
                 <div style={{ color: 'price' in d ? CYAN : CORAL }}>Launch price: ${price} per 1M input tokens</div>
-                <div className="text-foreground/80">AA Intelligence Index: {d.aa}</div>
+                <div className="text-foreground/80">AA Intelligence Index: {d.aa} (higher is better)</div>
                 {d.moore && <div style={{ color: AMBER }}>Moore's law pace: ${d.moore}</div>}
               </div>
             );
