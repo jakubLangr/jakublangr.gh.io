@@ -8,7 +8,8 @@ import { webcrypto as crypto } from 'node:crypto';
 const ITERATIONS = 250_000;
 
 const slug = process.argv[2];
-const password = process.env.ESSAY_PASSWORD;
+// Normalised like the browser gate (case- and whitespace-insensitive)
+const password = process.env.ESSAY_PASSWORD?.trim().toLowerCase();
 if (!slug || !password) {
   console.error('Usage: ESSAY_PASSWORD=... node scripts/encrypt-essay.mjs <slug>');
   process.exit(1);

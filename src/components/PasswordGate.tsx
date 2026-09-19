@@ -8,9 +8,11 @@ const PasswordGate = ({ onUnlock }: { onUnlock: (password: string) => Promise<bo
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!password) return;
+    // Case- and whitespace-insensitive: phone keyboards auto-capitalise and autocomplete adds spaces
+    const normalized = password.trim().toLowerCase();
+    if (!normalized) return;
     setBusy(true);
-    setError(!(await onUnlock(password)));
+    setError(!(await onUnlock(normalized)));
     setBusy(false);
   };
 
@@ -28,6 +30,9 @@ const PasswordGate = ({ onUnlock }: { onUnlock: (password: string) => Promise<bo
           <input
             type="password"
             autoFocus
+            autoCapitalize="none"
+            autoCorrect="off"
+            spellCheck={false}
             value={password}
             onChange={e => { setPassword(e.target.value); setError(false); }}
             className="bp-mono w-full bg-white/[0.04] border border-border px-3 py-2.5 text-foreground outline-none focus:border-accent"
