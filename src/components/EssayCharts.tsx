@@ -24,15 +24,15 @@ const trade = [
 ].map(([year, goods, services, total]) => ({ year, goods, services, total }));
 
 // OpenAI launch list price, USD per 1M input tokens; Moore's-law line = halving every 2 years from GPT-4.
-// aa = Artificial Analysis Intelligence Index v4.3 (estimated), shown for the two end points.
+// aa = Artificial Analysis Intelligence Index v4.3 (estimated) for every model, shown on hover; pin = label on the chart.
 const tokenPrice = [
-  { t: 2023.2, label: 'GPT-4', price: 30, moore: 30, aa: 7 },
-  { t: 2023.85, label: 'GPT-4 Turbo', price: 10 },
-  { t: 2024.37, label: 'GPT-4o', price: 5 },
-  { t: 2024.54, label: 'GPT-4o mini', price: 0.15 },
-  { t: 2025.29, label: 'GPT-4.1 nano', price: 0.1 },
-  { t: 2025.6, label: 'GPT-5 nano', price: 0.05, aa: 13 },
-  { t: 2026.7, label: 'today', price: 0.05, moore: 8.92, qwen: 0.03, qwenAa: 13.1 },
+  { t: 2023.2, label: 'GPT-4', price: 30, moore: 30, aa: 7, pin: true },
+  { t: 2023.85, label: 'GPT-4 Turbo', price: 10, aa: 7 },
+  { t: 2024.37, label: "GPT-4o (score: Nov '24 version)", price: 5, aa: 8 },
+  { t: 2024.54, label: 'GPT-4o mini', price: 0.15, aa: 7 },
+  { t: 2025.29, label: 'GPT-4.1 nano', price: 0.1, aa: 8 },
+  { t: 2025.6, label: 'GPT-5 nano', price: 0.05, aa: 13, pin: true },
+  { t: 2026.7, label: 'GPT-5 nano (today)', price: 0.05, aa: 13, moore: 8.92, qwen: 0.03, qwenAa: 13.1 },
 ];
 
 
@@ -273,10 +273,10 @@ const TokenPriceChart = () => {
   return (
     <Frame
       title="// fig. price of intelligence, USD per 1M input tokens"
-      source="OpenAI launch list prices. Smarts = Artificial Analysis Intelligence Index v4.3 (estimated): GPT-5 nano scores 13 vs GPT-4's 7, so the cheaper model is also the smarter one. Qwen3.5 4B (Alibaba, open weights) scores 13.1 (estimated) at $0.03, its current price via DeepInfra, the only provider Artificial Analysis lists. Dashed line: price halving every 2 years (Moore's law), not an API price forecast."
+      source="OpenAI launch list prices. Smarts = Artificial Analysis Intelligence Index v4.3 (estimated; hover any point for its score): GPT-5 nano scores 13 vs GPT-4's 7, so the cheaper model is also the smarter one. Qwen3.5 4B (Alibaba, open weights) scores 13.1 (estimated) at $0.03, its current price via DeepInfra, the only provider Artificial Analysis lists. Dashed line: price halving every 2 years (Moore's law), not an API price forecast."
       action={toggle}
     >
-      <LineChart data={tokenPrice} margin={{ top: 8, right: 16, left: -4, bottom: 0 }}>
+      <LineChart data={tokenPrice} margin={{ top: 28, right: 16, left: -4, bottom: 0 }}>
         <CartesianGrid stroke={GRID} vertical={false} />
         <XAxis dataKey="t" type="number" domain={[2023, 2027]} ticks={[2023, 2024, 2025, 2026, 2027]} tick={TICK} stroke={GRID} />
         {log ? (
@@ -293,7 +293,7 @@ const TokenPriceChart = () => {
           <LabelList
             content={({ x, y, index }) => {
               const d = tokenPrice[index as number];
-              if (!d?.aa) return null;
+              if (!d?.pin) return null;
               return (
                 <text x={Number(x) + 8} y={Number(y) - 10} fill={PAPER} fontSize={12} fontWeight={600}>
                   {d.label} · ${d.price} · smarts {d.aa}
